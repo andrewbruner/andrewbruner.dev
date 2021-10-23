@@ -1,0 +1,971 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Contact Form Entries\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-09 06:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.3"
+
+#: templates/leads-table.php:12 templates/leads-table.php:32
+msgid "#"
+msgstr ""
+
+#: contact-form-entries.php:1271
+#, php-format
+msgid "%s Already Exists"
+msgstr ""
+
+#: includes/plugin-pages.php:644
+#, php-format
+msgid "%s Deleted Permanently"
+msgstr ""
+
+#: includes/plugin-pages.php:592
+#, php-format
+msgid "%s Marked Read"
+msgstr ""
+
+#: includes/plugin-pages.php:603
+#, php-format
+msgid "%s Marked Unread"
+msgstr ""
+
+#: includes/plugin-pages.php:583
+#, php-format
+msgid "%s Moved to Trash"
+msgstr ""
+
+#: includes/plugin-pages.php:634
+#, php-format
+msgid "%s Restored"
+msgstr ""
+
+#: includes/plugin-pages.php:613
+#, php-format
+msgid "%s Starred"
+msgstr ""
+
+#: includes/plugin-pages.php:623
+#, php-format
+msgid "%s Unstarred"
+msgstr ""
+
+#: pro/plugin-api.php:400
+#, php-format
+msgid "%s Update is available"
+msgstr ""
+
+#: pro/plugin-api.php:402
+#, php-format
+msgid "%s Update is not available"
+msgstr ""
+
+#: wp/crmperks-notices.php:50
+#, php-format
+msgid ""
+"%sCRM Perks Forms Plugin%s is a free lightweight contact form builder and "
+"designer with floating buttons and popups."
+msgstr ""
+
+#: pro/add-ons.php:944
+msgid "Access Denied"
+msgstr ""
+
+#: pro/add-ons.php:712
+msgid "Activate"
+msgstr ""
+
+#: pro/plugin-api.php:797
+#, php-format
+msgid "Activate %s"
+msgstr ""
+
+#: wp/crmperks-notices.php:44
+msgid "Activate Plugin"
+msgstr ""
+
+#: pro/add-ons.php:672
+msgid "Active"
+msgstr ""
+
+#: templates/view.php:562
+msgid "Add File"
+msgstr ""
+
+#: templates/view.php:668 templates/view.php:669
+msgid "Add Note"
+msgstr ""
+
+#: includes/plugin-pages.php:993
+msgid "Add Star"
+msgstr ""
+
+#: pro/add-ons.php:954
+msgid "Add-on name not specified."
+msgstr ""
+
+#: templates/view.php:670
+msgid "Adding Note ..."
+msgstr ""
+
+#: templates/leads.php:303
+msgid "All Fields"
+msgstr ""
+
+#: templates/dashboard.php:71
+msgid "All Forms"
+msgstr ""
+
+#: templates/leads-table.php:123
+msgid "All Rows"
+msgstr ""
+
+#: templates/dashboard.php:96 templates/leads.php:318
+msgid "All Times"
+msgstr ""
+
+#: templates/view.php:684
+msgid "Also Send Email To"
+msgstr ""
+
+#: templates/dashboard.php:111 templates/leads.php:352 templates/leads.php:352
+msgid "Apply"
+msgstr ""
+
+#: templates/view.php:923
+msgid "Are you sure to delete ?"
+msgstr ""
+
+#: templates/leads.php:643
+msgid "Are you sure you want to delete?"
+msgstr ""
+
+#: templates/settings.php:192
+msgid "At least one of these attributes is required, others are optional"
+msgstr ""
+
+#: templates/view.php:411
+#, php-format
+msgid "Back to %s"
+msgstr ""
+
+#: pro/add-ons.php:897
+msgid "Back to CRM Perks Page"
+msgstr ""
+
+#: pro/dashboard.php:21
+msgid "Browsers"
+msgstr ""
+
+#: includes/plugin-pages.php:985
+msgid "Bulk Action"
+msgstr ""
+
+#: templates/leads.php:602 templates/view.php:822 templates/view.php:822
+#: templates/view.php:976
+msgid "Cancel"
+msgstr ""
+
+#: pro/plugin-api.php:116
+msgid "Check for updates"
+msgstr ""
+
+#: templates/settings.php:159
+msgid "Check this to disable IP address and User Agent(Browser ) tracking."
+msgstr ""
+
+#: templates/settings.php:149
+msgid ""
+"Check this to disable user tracking cookies. This will disable Related "
+"Entries and Form Abandonment feature"
+msgstr ""
+
+#: templates/print.php:290
+msgid "Close Window"
+msgstr ""
+
+#. Name of the plugin
+#: includes/plugin-pages.php:398
+msgid "Contact Form Entries"
+msgstr ""
+
+#: contact-form-entries.php:1452
+msgid "Contact Form Entries Plugin"
+msgstr ""
+
+#: includes/plugin-pages.php:1103
+#, php-format
+msgid ""
+"Contact Form Entries Plugin has been successfully uninstalled. It can be re-"
+"activated from the %s plugins page %s."
+msgstr ""
+
+#: contact-form-entries.php:1321
+msgid "Contact Form Fields"
+msgstr ""
+
+#: contact-form-entries.php:200 contact-form-entries.php:2391
+#: includes/plugin-pages.php:695
+msgid "Created"
+msgstr ""
+
+#: includes/plugin-pages.php:503
+msgid "CRM Entries"
+msgstr ""
+
+#. Author of the plugin
+#: pro/add-ons.php:67 pro/add-ons.php:68
+msgid "CRM Perks"
+msgstr ""
+
+#: templates/print.php:10
+msgid "CRM Perks Entries > Print Entries"
+msgstr ""
+
+#: pro/add-ons.php:719
+msgid "Deactivate"
+msgstr ""
+
+#: includes/plugin-pages.php:271 pro/add-ons.php:713 templates/leads.php:522
+#: templates/leads.php:522
+msgid "Delete"
+msgstr ""
+
+#: includes/plugin-pages.php:989 templates/view.php:805 templates/view.php:805
+msgid "Delete Permanently"
+msgstr ""
+
+#: includes/plugin-pages.php:271
+msgid "Deleting ..."
+msgstr ""
+
+#: templates/view.php:706
+msgid "Detail"
+msgstr ""
+
+#: templates/settings.php:145
+msgid "Disable Cookies"
+msgstr ""
+
+#: includes/plugin-pages.php:483
+msgid "Disable storing entry information in WordPress."
+msgstr ""
+
+#: templates/settings.php:155
+msgid "Disable User Details"
+msgstr ""
+
+#: pro/add-ons.php:672
+msgid "Disabled"
+msgstr ""
+
+#: wp/crmperks-notices.php:54 wp/crmperks-notices.php:115
+msgid "Dismiss this notice"
+msgstr ""
+
+#: templates/settings.php:188
+msgid "Display form entries in a table"
+msgstr ""
+
+#: templates/leads.php:366 templates/leads.php:564
+msgid "Displaying"
+msgstr ""
+
+#: templates/settings.php:126
+msgid "Do Not Track Forms"
+msgstr ""
+
+#: pro/plugin-api.php:806
+#, php-format
+msgid "Don't have a license key? Purchase one %s here %s."
+msgstr ""
+
+#: templates/view.php:811
+msgid "Edit"
+msgstr ""
+
+#: includes/plugin-pages.php:508
+msgid "Edit Entry"
+msgstr ""
+
+#: includes/plugin-pages.php:257
+msgid "Edit Note"
+msgstr ""
+
+#: includes/plugin-pages.php:265
+msgid "Email sent to"
+msgstr ""
+
+#: pro/plugin-api.php:919
+msgid "Enter License Key"
+msgstr ""
+
+#: pro/plugin-api.php:815
+msgid "Enter Your License Key"
+msgstr ""
+
+#: includes/plugin-pages.php:392 includes/plugin-pages.php:413
+#: includes/plugin-pages.php:460 includes/plugin-pages.php:732
+#: pro/dashboard.php:50 pro/pro.php:165
+msgid "Entries"
+msgstr ""
+
+#: includes/plugin-pages.php:102
+msgid "Entries by Same User"
+msgstr ""
+
+#: templates/settings.php:84
+msgid "Entries Client ID Changed.Please save new changes first"
+msgstr ""
+
+#: includes/plugin-pages.php:305
+msgid "Entries Logs Cleared Successfully"
+msgstr ""
+
+#: includes/plugin-pages.php:343 templates/dashboard.php:66
+msgid "Entries Stats"
+msgstr ""
+
+#: templates/print.php:306
+#, php-format
+msgid "Entry # %d"
+msgstr ""
+
+#: includes/plugin-pages.php:1290
+msgid "Entry could not be updated."
+msgstr ""
+
+#: includes/plugin-pages.php:1167
+msgid "Entry not found"
+msgstr ""
+
+#: templates/view.php:780
+msgid "Entry Submitted By"
+msgstr ""
+
+#: includes/plugin-pages.php:1287
+#, php-format
+msgid "Entry Updated. %sGo back to entries%s"
+msgstr ""
+
+#: pro/add-ons.php:1005
+msgid "ERROR"
+msgstr ""
+
+#: includes/plugin-pages.php:302
+msgid "Error While Clearing Entries Logs"
+msgstr ""
+
+#: pro/plugin-api.php:770
+msgid "Error while installing Plugin"
+msgstr ""
+
+#: includes/crmperks-cf.php:45 templates/crm-entry-box.php:20
+#: templates/view.php:419 templates/view.php:649 templates/view.php:851
+msgid "Expand / Collapse"
+msgstr ""
+
+#: templates/leads.php:357
+msgid "Export as CSV"
+msgstr ""
+
+#: templates/leads.php:708
+msgid ""
+"Exporting more than 4 entries may take too long.\\n Are you sure you want to "
+"continue?"
+msgstr ""
+
+#: includes/plugin-pages.php:1246
+msgid "File not uploaded."
+msgstr ""
+
+#: pro/dashboard.php:14
+msgid "Form Entries by Day"
+msgstr ""
+
+#: includes/plugin-pages.php:412
+msgid "Form Title"
+msgstr ""
+
+#: templates/leads.php:329
+msgid "From Date"
+msgstr ""
+
+#: templates/view.php:833
+msgid "Gateway"
+msgstr ""
+
+#: templates/settings.php:118
+msgid "General and GDPR Settings"
+msgstr ""
+
+#: pro/dashboard.php:7
+msgid "General Stats"
+msgstr ""
+
+#: pro/plugin-api.php:909
+msgid "Get License Key"
+msgstr ""
+
+#: templates/settings.php:216
+msgid "Get ShortCode"
+msgstr ""
+
+#: wp/crmperks-notices.php:80 wp/crmperks-notices.php:132
+msgid "Go Premium"
+msgstr ""
+
+#: includes/crmperks-cf.php:56
+msgid "Go Pro!"
+msgstr ""
+
+#: pro/add-ons.php:60
+#, php-format
+msgid "Go to %sCRM Perks%s Page to manage Add-ons"
+msgstr ""
+
+#: templates/view.php:771
+msgid "Go to IP Detail"
+msgstr ""
+
+#: pro/add-ons.php:731
+msgid "Go to Settings"
+msgstr ""
+
+#: templates/view.php:662
+msgid "Green Note"
+msgstr ""
+
+#: includes/plugin-pages.php:357
+msgid "Help"
+msgstr ""
+
+#: templates/print.php:287
+msgid "Hide Empty Fields"
+msgstr ""
+
+#: templates/settings.php:67
+msgid "Hide Key"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.crmperks.com"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.crmperks.com/plugins/contact-form-plugins/crm-perks-forms/"
+msgstr ""
+
+#: templates/settings.php:193
+msgid "Identify which column will start the table (e.g., col-start=\"2\")"
+msgstr ""
+
+#: templates/settings.php:213
+msgid ""
+"If it is sortable, the table is also able to be paginated (e.g., pager=\"1\")"
+msgstr ""
+
+#: pro/plugin-api.php:909
+#, php-format
+msgid "If you don't have a license key, you can get from %shere%s."
+msgstr ""
+
+#: wp/crmperks-notices.php:98
+#, php-format
+msgid ""
+"if you enjoy using %sContact Form Entries Plugin%s, please %s leave us a %s "
+"rating%s. A %shuge%s thank you in advance."
+msgstr ""
+
+#: templates/settings.php:211
+msgid ""
+"If you want table columns to be sortable, set sortable to sortable=\"1\""
+msgstr ""
+
+#: templates/settings.php:200
+msgid ""
+"If you'd like to insert serial column numbers, set number-col to number-"
+"col=\"true\""
+msgstr ""
+
+#: templates/crm-entry-box.php:26
+msgid "Include Notes"
+msgstr ""
+
+#: pro/add-ons.php:706
+msgid "Install"
+msgstr ""
+
+#: wp/crmperks-notices.php:48
+msgid "Install Plugin"
+msgstr ""
+
+#: templates/view.php:833
+msgid "Invoice ID"
+msgstr ""
+
+#: templates/view.php:767
+msgid "IP"
+msgstr ""
+
+#: pro/plugin-api.php:749 pro/plugin-api.php:810 pro/plugin-api.php:907
+#: pro/plugin-api.php:913
+msgid "License Key"
+msgstr ""
+
+#: pro/plugin-api.php:931
+#, php-format
+msgid "License Key is Valid - %s"
+msgstr ""
+
+#: pro/pro.php:296
+msgid "Link Entries / Contacts"
+msgstr ""
+
+#: templates/settings.php:196
+msgid "List the table font size"
+msgstr ""
+
+#: templates/settings.php:206
+msgid ""
+"List the total number of records the table will contain (e.g., limit=\"300)"
+msgstr ""
+
+#: pro/add-ons.php:72 pro/add-ons.php:548
+msgid "Manage Add-ons"
+msgstr ""
+
+#: includes/plugin-pages.php:991
+msgid "Mark as Read"
+msgstr ""
+
+#: includes/plugin-pages.php:992
+msgid "Mark as Unread"
+msgstr ""
+
+#: templates/leads.php:495
+msgid "Mark Read"
+msgstr ""
+
+#: templates/leads.php:497
+msgid "Mark Unread"
+msgstr ""
+
+#: includes/crmperks-cf.php:44
+msgid "Marketing Data"
+msgstr ""
+
+#: includes/crmperks-cf.php:56
+msgid "Need Marketing Insight? ,"
+msgstr ""
+
+#: pro/add-ons.php:690
+#, php-format
+msgid "New Version %s is available."
+msgstr ""
+
+#: includes/plugin-pages.php:428 pro/dashboard.php:10 pro/dashboard.php:17
+#: pro/dashboard.php:24 pro/dashboard.php:31
+msgid "No Data To Display"
+msgstr ""
+
+#: includes/plugin-pages.php:357
+msgid "No Duplicate Fields Explanation"
+msgstr ""
+
+#: includes/plugin-pages.php:357
+msgid "No Duplicates - "
+msgstr ""
+
+#: includes/plugin-pages.php:361
+msgid "No Duplicates Validation Message"
+msgstr ""
+
+#: contact-form-entries.php:1364 includes/plugin-pages.php:233
+msgid "No Entry Found"
+msgstr ""
+
+#: includes/plugin-pages.php:1322
+msgid "No fields found."
+msgstr ""
+
+#: includes/crmperks-cf.php:64
+msgid "No Information Available"
+msgstr ""
+
+#: templates/leads-table.php:90 templates/leads.php:551
+msgid "No Record(s) Found"
+msgstr ""
+
+#: pro/add-ons.php:672
+msgid "Not Installed"
+msgstr ""
+
+#: includes/plugin-pages.php:261
+msgid "Note created at"
+msgstr ""
+
+#: includes/plugin-pages.php:259
+msgid "Note created by"
+msgstr ""
+
+#: templates/view.php:990
+msgid "Note is empty"
+msgstr ""
+
+#: templates/view.php:648
+msgid "Notes"
+msgstr ""
+
+#: templates/print.php:358
+msgid "Notes."
+msgstr ""
+
+#: templates/settings.php:98
+msgid "Notification - Remove Connection?"
+msgstr ""
+
+#: includes/plugin-pages.php:574
+msgid "Oops! Something went wrong."
+msgstr ""
+
+#: pro/dashboard.php:28
+msgid "Operating Systems"
+msgstr ""
+
+#: pro/dashboard.php:50 pro/pro.php:165
+msgid "Partial Entries"
+msgstr ""
+
+#: templates/view.php:842
+msgid "Payment Details"
+msgstr ""
+
+#: templates/leads.php:683
+msgid "Please Select Action"
+msgstr ""
+
+#: templates/leads.php:687
+msgid "Please select at least one entry"
+msgstr ""
+
+#: templates/settings.php:165
+msgid "Plugin Data"
+msgstr ""
+
+#: pro/plugin-api.php:774
+msgid "Plugin installed successfully"
+msgstr ""
+
+#: pro/add-ons.php:1014
+msgid "Plugin Not Found"
+msgstr ""
+
+#: includes/plugin-pages.php:995 templates/crm-entry-box.php:19
+#: templates/crm-entry-box.php:30 templates/crm-entry-box.php:30
+msgid "Print Entry"
+msgstr ""
+
+#: includes/plugin-pages.php:996
+msgid "Print Entry + Notes"
+msgstr ""
+
+#: templates/print.php:283
+msgid "Print Preview"
+msgstr ""
+
+#: templates/print.php:285
+msgid "Print This Page"
+msgstr ""
+
+#: templates/view.php:662
+msgid "Red Note"
+msgstr ""
+
+#: pro/plugin-api.php:786
+msgid "Redirecting, Please Wait"
+msgstr ""
+
+#: pro/add-ons.php:579
+msgid "Refresh Add-ons List"
+msgstr ""
+
+#: templates/view.php:555 templates/view.php:567
+msgid "Remove"
+msgstr ""
+
+#: templates/settings.php:169
+msgid "Remove all plugin data during plugin uninstall"
+msgstr ""
+
+#: includes/plugin-pages.php:994
+msgid "Remove Star"
+msgstr ""
+
+#: includes/plugin-pages.php:988 templates/leads.php:520
+#: templates/leads.php:520 templates/view.php:804 templates/view.php:804
+msgid "Restore"
+msgstr ""
+
+#: templates/leads.php:598 templates/leads.php:599 templates/view.php:817
+#: templates/view.php:818
+msgid "Save"
+msgstr ""
+
+#: templates/settings.php:177
+msgid "Save Changes"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Save form submissions to the database from <a href=\"https://wordpress."
+"org/plugins/contact-form-7/\">Contact Form 7</a>, <a href=\"https:"
+"//wordpress.org/plugins/jetpack/\">JetPack Contact Form</a>, <a href=\"https:"
+"//wordpress.org/plugins/ninja-forms/\">Ninja Forms</a>, <a href=\"https:"
+"//wordpress.org/plugins/formidable/\">Formidable Forms</a>, <a href=\"http:"
+"//codecanyon.net/item/quform-wordpress-form-builder/706149\">Quform</a>, <a "
+"href=\"https://wordpress.org/plugins/cforms2/\">cformsII</a>, <a "
+"href=\"https://wordpress.org/plugins/contact-form-plugin/\">Contact Form by "
+"BestWebSoft</a>, <a href=\"https://wordpress.org/plugins/ultimate-form-"
+"builder-lite/\">Ultimate Form Builder</a>, <a href=\"https://wordpress."
+"org/plugins/caldera-forms/\">Caldera Forms</a> and <a href=\"https:"
+"//wordpress.org/plugins/wpforms-lite/\">WP Forms</a>."
+msgstr ""
+
+#: pro/plugin-api.php:937
+msgid "Save License Key"
+msgstr ""
+
+#: pro/plugin-api.php:818
+msgid "Save Settings"
+msgstr ""
+
+#: templates/leads.php:600 templates/view.php:819
+msgid "Saving ..."
+msgstr ""
+
+#: contact-form-entries.php:2387 templates/view.php:746
+msgid "Screen"
+msgstr ""
+
+#: templates/leads.php:294 templates/leads.php:333 templates/leads.php:333
+msgid "Search"
+msgstr ""
+
+#: templates/leads.php:583
+msgid "Select Columns"
+msgstr ""
+
+#: templates/settings.php:197
+msgid "Set the class name of the table"
+msgstr ""
+
+#: templates/settings.php:202
+msgid "Set the column width (e.g., number-col-width=\"30\")"
+msgstr ""
+
+#: includes/plugin-pages.php:328
+msgid "Settings"
+msgstr ""
+
+#: includes/plugin-pages.php:1114
+msgid "Settings Changed Successfully"
+msgstr ""
+
+#: templates/settings.php:183
+msgid "Short Codes"
+msgstr ""
+
+#: templates/print.php:288
+msgid "Show Empty Fields"
+msgstr ""
+
+#: templates/settings.php:214
+msgid ""
+"show entries from specific user id , leave empty for logged in user (e.g., "
+"user-id=\"2\" , user-id=\"\")"
+msgstr ""
+
+#: templates/settings.php:63
+msgid "Show Key"
+msgstr ""
+
+#: contact-form-entries.php:2385
+msgid "Source"
+msgstr ""
+
+#: templates/view.php:757
+msgid "Source Url"
+msgstr ""
+
+#: templates/settings.php:191
+msgid "Specify form-id (e.g., form-id=\"cf_8\")"
+msgstr ""
+
+#: templates/settings.php:194
+msgid ""
+"Specify how many columns the table will display (e.g., cols=\"6\"), Do not "
+"set this parameter if you are using col-labels"
+msgstr ""
+
+#: templates/settings.php:209
+msgid ""
+"Specify how many records the table will have per page (e.g., per-page=\"20\")"
+msgstr ""
+
+#: templates/settings.php:198
+msgid "Specify the id of the table"
+msgstr ""
+
+#: templates/settings.php:204
+msgid "Specify which row will start the table (e.g., start=\"0\")"
+msgstr ""
+
+#: templates/view.php:833
+msgid "Status"
+msgstr ""
+
+#: templates/view.php:691
+msgid "Subject"
+msgstr ""
+
+#: templates/view.php:719
+msgid "Submitted"
+msgstr ""
+
+#: contact-form-entries.php:2384 templates/view.php:736
+msgid "System"
+msgstr ""
+
+#: includes/plugin-pages.php:363
+msgid ""
+"This message will be displayed to the visitor if duplicate found. You can "
+"use %field_value% to display the field value submitted by user."
+msgstr ""
+
+#: wp/crmperks-notices.php:79
+msgid "This plugin has Premium add-ons and many powerful features."
+msgstr ""
+
+#: pro/add-ons.php:683
+#, php-format
+msgid "This Plugin requires %s plugin"
+msgstr ""
+
+#: templates/leads.php:330
+msgid "To Date"
+msgstr ""
+
+#: templates/print.php:286
+msgid "Toggle Empty Fields"
+msgstr ""
+
+#: pro/plugin-api.php:921
+msgid "Toggle License Key"
+msgstr ""
+
+#: templates/view.php:833
+msgid "Total"
+msgstr ""
+
+#: includes/plugin-pages.php:997 templates/leads.php:530
+#: templates/leads.php:530 templates/view.php:813 templates/view.php:813
+msgid "Trash"
+msgstr ""
+
+#: pro/dashboard.php:50
+msgid "Unique Visitors"
+msgstr ""
+
+#: includes/plugin-pages.php:414 includes/plugin-pages.php:475
+msgid "Unread"
+msgstr ""
+
+#: templates/view.php:977
+msgid "Update Note"
+msgstr ""
+
+#: contact-form-entries.php:2389 templates/view.php:726
+msgid "Updated"
+msgstr ""
+
+#: pro/add-ons.php:695
+msgid "Updated :"
+msgstr ""
+
+#: pro/add-ons.php:738
+msgid "Upgrade"
+msgstr ""
+
+#: templates/view.php:784
+msgid "User"
+msgstr ""
+
+#: templates/settings.php:195
+msgid ""
+"Using labels, identify which columns the table will display (e.g., col-"
+"labels=\"Last name, First name\")"
+msgstr ""
+
+#: pro/add-ons.php:695
+msgid "Version :"
+msgstr ""
+
+#: templates/leads.php:526
+msgid "View"
+msgstr ""
+
+#: pro/pro.php:165
+msgid "Visitors"
+msgstr ""
+
+#: pro/add-ons.php:531
+msgid "Wait..."
+msgstr ""
+
+#: templates/view.php:662
+msgid "Yellow Note"
+msgstr ""
+
+#: wp/crmperks-notices.php:115
+msgid "Yes, you deserve it"
+msgstr ""
+
+#: pro/add-ons.php:549
+msgid "You can activate, deactivate and delete add-ons here."
+msgstr ""
+
+#: includes/plugin-pages.php:949 includes/plugin-pages.php:1088
+#: includes/plugin-pages.php:1143
+msgid "You do not have permissions to access this page."
+msgstr ""
+
+#: includes/plugin-pages.php:1194
+msgid "You do not have permissions to edit/save entry."
+msgstr ""
+
+#: includes/plugin-pages.php:1110
+msgid "You do not have permissions to save settings."
+msgstr ""
+
+#: wp/crmperks-notices.php:114
+#, php-format
+msgid ""
+"You've been using Contact Form Entries Plugin for some time now; we hope you "
+"love it!.%s If you do, please %s leave us a %s rating on WordPress.org%s to "
+"help us spread the word and boost our motivation."
+msgstr ""
+
+#: pro/plugin-api.php:371
+#, php-format
+msgid "Your License Key expired. %sRenew it Now%s"
+msgstr ""
