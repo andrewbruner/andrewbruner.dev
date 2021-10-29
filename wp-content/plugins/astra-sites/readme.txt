@@ -5,7 +5,7 @@ Tags: Elementor,Beaver Builder,Templates,Gutenberg,Astra Starter Sites
 Requires at least: 4.4
 Requires PHP: 5.3
 Tested up to: 5.8
-Stable tag: 2.6.22
+Stable tag: 2.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -148,6 +148,25 @@ We are open to suggestions and would love to work on topics that our users are l
 7. Free Images by Pixabay right inside the WordPress media popup.
 
 == Changelog ==
+
+v2.7.5 - 27-October-2021
+- Fix: Elementor blocks not being imported due to missing required plugins.
+
+v2.7.4 - 26-October-2021
+- Fix: Fixed the issue with Elementor blocks contact form not being imported due to invalid form JSON file URL.
+
+v2.7.3 - 19-October-2021
+- Improvement: Validate the whitelisted host's URLs from the import process.
+
+v2.7.2 - 7-October-2021
+- Fix: No route was found matching the URL and request method.
+
+v2.7.1 - 7-October-2021
+- Security Improvement: Validate the site URL before processing the import request.
+- Security Improvement: Updated right file upload permission before importing images.
+
+v2.7.0 - 4-October-2021
+- New: Wireframe blocks for Gutenberg - [Doc](https://wpastra.com/docs/starter-templates-wireframe-blocks/)
 
 v2.6.22 - 7-September-2021
 - Fix: Contact Forms not appearing after the import process is complete.

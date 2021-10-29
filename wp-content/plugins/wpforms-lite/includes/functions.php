@@ -607,33 +607,34 @@ function wpforms_get_form_fields( $form = false, $whitelist = array() ) {
 	}
 
 	// White list of field types to allow.
-	$allowed_form_fields = array(
+	$allowed_form_fields = [
+		'address',
+		'checkbox',
+		'date-time',
+		'email',
+		'file-upload',
+		'gdpr-checkbox',
+		'hidden',
+		'likert_scale',
+		'name',
+		'net_promoter_score',
+		'number',
+		'number-slider',
+		'payment-checkbox',
+		'payment-multiple',
+		'payment-select',
+		'payment-single',
+		'payment-total',
+		'phone',
+		'radio',
+		'rating',
+		'richtext',
+		'select',
+		'signature',
 		'text',
 		'textarea',
-		'number-slider',
-		'select',
-		'radio',
-		'checkbox',
-		'gdpr-checkbox',
-		'email',
-		'address',
 		'url',
-		'name',
-		'hidden',
-		'date-time',
-		'phone',
-		'number',
-		'file-upload',
-		'rating',
-		'likert_scale',
-		'signature',
-		'payment-single',
-		'payment-multiple',
-		'payment-checkbox',
-		'payment-select',
-		'payment-total',
-		'net_promoter_score',
-	);
+	];
 	$allowed_form_fields = apply_filters( 'wpforms_get_form_fields_allowed', $allowed_form_fields );
 
 	if ( ! is_array( $form ) || empty( $form['fields'] ) ) {
@@ -662,23 +663,24 @@ function wpforms_get_form_fields( $form = false, $whitelist = array() ) {
  */
 function wpforms_get_conditional_logic_form_fields_supported() {
 
-	$fields_supported = array(
+	$fields_supported = [
+		'checkbox',
+		'email',
+		'hidden',
+		'net_promoter_score',
+		'number',
+		'number-slider',
+		'payment-checkbox',
+		'payment-multiple',
+		'payment-select',
+		'radio',
+		'rating',
+		'richtext',
+		'select',
 		'text',
 		'textarea',
-		'number-slider',
-		'select',
-		'radio',
-		'email',
 		'url',
-		'checkbox',
-		'number',
-		'payment-multiple',
-		'payment-checkbox',
-		'payment-select',
-		'hidden',
-		'rating',
-		'net_promoter_score',
-	);
+	];
 
 	return apply_filters( 'wpforms_get_conditional_logic_form_fields_supported', $fields_supported );
 }
@@ -1247,6 +1249,121 @@ function wpforms_sanitize_text_deeply( $string, $keep_newlines = false ) {
 	}
 
 	return $new_value;
+}
+
+/**
+ * Sanitize an HTML string with a set of allowed HTML tags.
+ *
+ * @since 1.7.0
+ *
+ * @param string $value String to sanitize.
+ *
+ * @return string Sanitized string.
+ */
+function wpforms_sanitize_richtext_field( $value ) {
+
+	$count = 1;
+	$value = convert_invalid_entities( $value );
+
+	// Remove 'script' and 'style' tags recursively.
+	while ( $count ) {
+		$value = preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', $value, - 1, $count );
+	}
+
+	// Make sure we have allowed tags only.
+	$value = wp_kses( $value, wpforms_get_allowed_html_tags_for_richtext_field() );
+
+	// Make sure that all tags are balanced.
+	return force_balance_tags( $value );
+}
+
+/**
+ * Escaping for Rich Text field values.
+ *
+ * @since 1.7.0
+ *
+ * @param string $value Text to escape.
+ *
+ * @return string Escaped text.
+ */
+function wpforms_esc_richtext_field( $value ) {
+
+	return wpautop( wpforms_sanitize_richtext_field( $value ) );
+}
+
+/**
+ * Retrieve allowed HTML tags for Rich Text field.
+ *
+ * @since 1.7.0
+ *
+ * @return array Array of allowed tags.
+ */
+function wpforms_get_allowed_html_tags_for_richtext_field() {
+
+	$allowed_tags = array_fill_keys(
+		[
+			'img',
+			'h1',
+			'h2',
+			'h3',
+			'h4',
+			'h5',
+			'h6',
+			'p',
+			'a',
+			'ul',
+			'ol',
+			'li',
+			'dl',
+			'dt',
+			'dd',
+			'hr',
+			'br',
+			'code',
+			'pre',
+			'strong',
+			'b',
+			'em',
+			'i',
+			'blockquote',
+			'cite',
+			'q',
+			'del',
+			'span',
+			'small',
+			'table',
+			'th',
+			'tr',
+			'td',
+			'abbr',
+			'address',
+			'sub',
+			'sup',
+			'ins',
+			'figure',
+			'figcaption',
+			'div',
+		],
+		array_fill_keys(
+			[ 'align', 'class', 'id', 'style', 'src', 'rel', 'href', 'target', 'width', 'height', 'title', 'cite', 'start', 'reversed', 'datetime' ],
+			[]
+		)
+	);
+
+	/**
+	 * Allowed HTML tags for Rich Text field.
+	 *
+	 * @since 1.7.0
+	 *
+	 * @param array $allowed_tags Allowed HTML tags.
+	 */
+	$tags = (array) apply_filters( 'wpforms_get_allowed_html_tags_for_richtext_field', $allowed_tags );
+
+	// Force unset iframes, script and style no matter when we get back
+	// from apply_filters, as they are a huge security risk.
+	unset( $tags['iframe'], $tags['script'], $tags['style'] );
+
+	return $tags;
 }
 
 /**
@@ -2512,6 +2629,9 @@ function wpforms_count_words( $string ) {
 
 /**
  * Get WPForms upload root path (e.g. /wp-content/uploads/wpforms).
+ *
+ * As of 1.7.0, you can pass in your own value that matches the output of wp_upload_dir()
+ * in order to use this function inside of a filter without infinite looping.
  *
  * @since 1.6.1
  *

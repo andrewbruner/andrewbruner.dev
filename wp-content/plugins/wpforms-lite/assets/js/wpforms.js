@@ -1,4 +1,4 @@
-/* global wpforms_settings, grecaptcha, hcaptcha, wpformsRecaptchaCallback, wpforms_validate, wpforms_datepicker, wpforms_timepicker, Mailcheck, Choices, WPFormsPasswordField, punycode */
+/* global wpforms_settings, grecaptcha, hcaptcha, wpformsRecaptchaCallback, wpforms_validate, wpforms_datepicker, wpforms_timepicker, Mailcheck, Choices, WPFormsPasswordField, WPFormsEntryPreview, punycode, tinyMCE */
 
 'use strict';
 
@@ -17,7 +17,15 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 			$( app.ready );
 
 			// Page load.
-			$( window ).on( 'load', app.load );
+			$( window ).on( 'load', function() {
+
+				// In the case of jQuery 3.+, we need to wait for a ready event first.
+				if ( typeof $.ready.then === 'function' ) {
+					$.ready.then( app.load );
+				} else {
+					app.load();
+				}
+			} );
 
 			app.bindUIActions();
 			app.bindOptinMonster();
@@ -66,7 +74,6 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 		 * @since 1.2.3
 		 */
 		load: function() {
-
 		},
 
 		//--------------------------------------------------------------------//
@@ -87,7 +94,6 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 				history.replaceState( {}, null, loc.origin + loc.pathname + query );
 			}
 		},
-
 
 		/**
 		 * Load jQuery Validation.
@@ -322,6 +328,7 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 						properties = {
 							errorClass: 'wpforms-error',
 							validClass: 'wpforms-valid',
+							ignore: ':hidden:not(textarea.wp-editor-area), .wpforms-conditional-hide textarea.wp-editor-area',
 							errorPlacement: function( error, element ) {
 
 								if ( app.isLikertScaleField( element ) ) {
@@ -1165,86 +1172,37 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 
 				return /^[-0-9.]+$/.test( String.fromCharCode( e.keyCode || e.which ) );
 			} );
-
-			$( document ).on( 'wpformsBeforePageChange', app.entryPreviewFieldPageChange );
 		},
 
 		/**
 		 * Entry preview field callback for a page changing.
 		 *
 		 * @since 1.6.9
+		 * @deprecated 1.7.0
 		 *
-		 * @param {Event} event Event.
-		 * @param {int} currentPage Current page.
-		 * @param {jQuery} $form Current form.
+		 * @param {Event}  event       Event.
+		 * @param {int}    currentPage Current page.
+		 * @param {jQuery} $form       Current form.
 		 */
 		entryPreviewFieldPageChange: function( event, currentPage, $form ) {
 
-			if ( ! $( event.target ).hasClass( 'wpforms-page-next' ) ) {
-				return;
-			}
-
-			app.entryPreviewFieldUpdate( currentPage, $form );
+			console.warn( 'WARNING! Obsolete function called. Function wpforms.entryPreviewFieldPageChange has been deprecated, please use the WPFormsEntryPreview.pageChange function instead!' );
+			WPFormsEntryPreview.pageChange( event, currentPage, $form );
 		},
 
 		/**
 		 * Update the entry preview fields on the page.
 		 *
 		 * @since 1.6.9
+		 * @deprecated 1.7.0
 		 *
-		 * @param {int} currentPage Current page.
-		 * @param {jQuery} $form Current form.
+		 * @param {int}    currentPage Current page.
+		 * @param {jQuery} $form       Current form.
 		 */
 		entryPreviewFieldUpdate: function( currentPage, $form ) {
 
-			var $entryPreviewField = $form.find( '.wpforms-page-' + currentPage + ' .wpforms-field-entry-preview' );
-
-			if ( ! $entryPreviewField.length ) {
-				return;
-			}
-
-			var entryPreviewId        = $entryPreviewField.data( 'field-id' ),
-				$fieldUpdatingMessage = $entryPreviewField.find( '.wpforms-entry-preview-updating-message' ),
-				$fieldNotice          = $entryPreviewField.find( '.wpforms-entry-preview-notice' ),
-				$fieldWrapper         = $entryPreviewField.find( '.wpforms-entry-preview-wrapper' ),
-				formData              = new FormData( $form.get( 0 ) );
-
-			formData.append( 'action', 'wpforms_get_entry_preview' );
-			formData.append( 'current_entry_preview_id', entryPreviewId );
-
-			$.ajax( {
-				data: formData,
-				type: 'post',
-				url: wpforms_settings.ajaxurl,
-				dataType: 'json',
-
-				// Disable processData and contentType to pass formData is an object.
-				processData: false,
-				contentType: false,
-				beforeSend: function() {
-					$entryPreviewField.addClass( 'wpforms-field-entry-preview-updating' );
-					$fieldNotice.hide();
-					$fieldWrapper.hide();
-					$fieldUpdatingMessage.show();
-				},
-				success: function( response ) {
-
-					if ( ! response.data ) {
-						$entryPreviewField.hide();
-
-						return;
-					}
-
-					$fieldWrapper.html( response.data );
-					$entryPreviewField.show();
-				},
-				complete: function() {
-					$entryPreviewField.removeClass( 'wpforms-field-entry-preview-updating' );
-					$fieldUpdatingMessage.hide();
-					$fieldNotice.show();
-					$fieldWrapper.show();
-				},
-			} );
+			console.warn( 'WARNING! Obsolete function called. Function wpforms.entryPreviewFieldUpdate has been deprecated, please use the WPFormsEntryPreview.update function instead!' );
+			WPFormsEntryPreview.update( currentPage, $form );
 		},
 
 		/**
@@ -1308,6 +1266,8 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 				$indicator = $form.find( '.wpforms-page-indicator' ),
 				$reCAPTCHA = $form.find( '.wpforms-recaptcha-container' ),
 				pageScroll = false;
+
+			app.saveTinyMCE();
 
 			// Page scroll.
 			// TODO: cleanup this BC with wpform_pageScroll.
@@ -1922,6 +1882,8 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 				$form = $( $form );
 			}
 
+			app.saveTinyMCE();
+
 			$form.trigger( 'wpformsBeforeFormSubmit' );
 
 			if ( $form.hasClass( 'wpforms-ajax-form' ) && typeof FormData !== 'undefined' ) {
@@ -2191,6 +2153,9 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 				if ( json.data.confirmation ) {
 					$container.html( json.data.confirmation );
 					$confirmationScroll = $container.find( 'div.wpforms-confirmation-scroll' );
+
+					$container.trigger( 'wpformsAjaxSubmitSuccessConfirmation', json );
+
 					if ( $confirmationScroll.length ) {
 						app.animateScrollTop( $confirmationScroll.offset().top - 100 );
 					}
@@ -2246,6 +2211,18 @@ var wpforms = window.wpforms || ( function( document, window, $ ) {
 			duration = duration || 1000;
 			complete = typeof complete === 'function' ? complete : function() {};
 			return $( 'html, body' ).animate( { scrollTop: parseInt( position, 10 ) }, { duration: duration, complete: complete } ).promise();
+		},
+
+		/**
+		 * Save tinyMCE.
+		 *
+		 * @since 1.7.0
+		 */
+		saveTinyMCE: function() {
+
+			if ( typeof tinyMCE !== 'undefined' ) {
+				tinyMCE.triggerSave();
+			}
 		},
 
 		/**

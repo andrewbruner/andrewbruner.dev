@@ -101,10 +101,11 @@ class Astra_Global_Palette {
 	public function localize_variables( $object ) {
 
 		if ( isset( $object['customizer'] ) ) {
-			$object['customizer']['globalPaletteStylePrefix'] = self::get_css_variable_prefix();
-			$object['customizer']['isElementorActive']        = astra_is_elemetor_active();
-			$object['customizer']['globalPaletteSlugs']       = self::get_palette_slugs();
-			$object['customizer']['globalPaletteLabels']      = self::get_palette_labels();
+			$object['customizer']['globalPaletteStylePrefix']       = self::get_css_variable_prefix();
+			$object['customizer']['isElementorActive']              = astra_is_elemetor_active();
+			$object['customizer']['isGlobalColorElementorDisabled'] = astra_maybe_disable_global_color_in_elementor();
+			$object['customizer']['globalPaletteSlugs']             = self::get_palette_slugs();
+			$object['customizer']['globalPaletteLabels']            = self::get_palette_labels();
 		}
 		return $object;
 	}
@@ -120,7 +121,7 @@ class Astra_Global_Palette {
 			'currentPalette' => 'palette_1',
 			'palettes'       => array(
 				'palette_1' => array(
-					'#0274be',
+					'#0170B9',
 					'#3a3a3a',
 					'#3a3a3a',
 					'#4B4F58',
@@ -131,7 +132,7 @@ class Astra_Global_Palette {
 					'#000000',
 				),
 				'palette_2' => array(
-					'#0274be',
+					'#0170B9',
 					'#3a3a3a',
 					'#3a3a3a',
 					'#4B4F58',
@@ -142,7 +143,7 @@ class Astra_Global_Palette {
 					'#000000',
 				),
 				'palette_3' => array(
-					'#0274be',
+					'#0170B9',
 					'#3a3a3a',
 					'#3a3a3a',
 					'#4B4F58',

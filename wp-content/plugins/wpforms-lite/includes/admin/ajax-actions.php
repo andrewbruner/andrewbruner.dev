@@ -479,9 +479,9 @@ function wpforms_activate_addon() {
 		wp_send_json_error( esc_html__( 'Plugin activation is disabled for you on this site.', 'wpforms-lite' ) );
 	}
 
-	if ( isset( $_POST['plugin'] ) ) {
+	$type = 'addon';
 
-		$type = 'addon';
+	if ( isset( $_POST['plugin'] ) ) {
 
 		if ( ! empty( $_POST['type'] ) ) {
 			$type = sanitize_key( $_POST['type'] );
@@ -490,6 +490,13 @@ function wpforms_activate_addon() {
 		$plugin   = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
 		$activate = activate_plugins( $plugin );
 
+		/**
+		 * Fire after plugin activating via the WPForms installer.
+		 *
+		 * @since 1.6.3.1
+		 *
+		 * @param string $plugin Path to the plugin file relative to the plugins directory.
+		 */
 		do_action( 'wpforms_plugin_activated', $plugin );
 
 		if ( ! is_wp_error( $activate ) ) {
@@ -501,7 +508,11 @@ function wpforms_activate_addon() {
 		}
 	}
 
-	wp_send_json_error( esc_html__( 'Could not activate addon. Please activate from the Plugins page.', 'wpforms-lite' ) );
+	if ( $type === 'plugin' ) {
+		wp_send_json_error( esc_html__( 'Could not activate the plugin. Please activate it on the Plugins page.', 'wpforms-lite' ) );
+	}
+
+	wp_send_json_error( esc_html__( 'Could not activate the addon. Please activate it on the Plugins page.', 'wpforms-lite' ) );
 }
 add_action( 'wp_ajax_wpforms_activate_addon', 'wpforms_activate_addon' );
 
@@ -524,7 +535,9 @@ function wpforms_install_addon() {
 		wp_send_json_error( $generic_error );
 	}
 
-	$error = $type === 'plugin' ? esc_html__( 'Could not install plugin. Please download and install manually.', 'wpforms-lite' ) : esc_html__( 'Could not install addon. Please download from wpforms.com and install manually.', 'wpforms-lite' );
+	$error = $type === 'plugin'
+		? esc_html__( 'Could not install the plugin. Please download and install it manually.', 'wpforms-lite' )
+		: esc_html__( 'Could not install the addon. Please download it from wpforms.com and install it manually.', 'wpforms-lite' );
 
 	if ( empty( $_POST['plugin'] ) ) {
 		wp_send_json_error( $error );
@@ -603,6 +616,16 @@ function wpforms_install_addon() {
 	$activated = activate_plugin( $plugin_basename );
 
 	if ( ! is_wp_error( $activated ) ) {
+
+		/**
+		 * Fire after plugin activating via the WPForms installer.
+		 *
+		 * @since 1.7.0
+		 *
+		 * @param string $plugin_basename Path to the plugin file relative to the plugins directory.
+		 */
+		do_action( 'wpforms_plugin_activated', $plugin_basename );
+
 		$result['is_activated'] = true;
 		$result['msg']          = $type === 'plugin' ? esc_html__( 'Plugin installed & activated.', 'wpforms-lite' ) : esc_html__( 'Addon installed & activated.', 'wpforms-lite' );
 

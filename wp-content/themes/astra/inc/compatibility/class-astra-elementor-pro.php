@@ -5,14 +5,14 @@
  * @package Astra
  */
 
-namespace Elementor; // phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
+namespace Elementor; // phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) || ! class_exists( 'ElementorPro\Modules\ThemeBuilder\Module' ) ) {
 	return;
 }
 
-namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport; // phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound, PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound
+namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport; // phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound, PHPCompatibility.LanguageConstructs.NewLanguageConstructs.t_ns_separatorFound, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound
 
 // @codingStandardsIgnoreStart PHPCompatibility.Keywords.NewKeywords.t_useFound
 use Elementor\TemplateLibrary\Source_Local;
@@ -230,7 +230,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			if ( 'disabled' === $footer_layout ) {
 				add_filter(
-					'ast_footer_sml_layout',
+					'astra_footer_sml_layout',
 					function( $is_footer ) {
 						return 'disabled';
 					}
@@ -261,7 +261,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( 'disabled' === $main_header_display ) {
 				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
 				add_filter(
-					'ast_main_header_display',
+					'astra_main_header_display',
 					function( $display_header ) {
 						return 'disabled';
 					}

@@ -1199,7 +1199,7 @@ class WPForms_Frontend {
 			'wpforms-validation',
 			WPFORMS_PLUGIN_URL . 'assets/js/jquery.validate.min.js',
 			[ 'jquery' ],
-			'1.19.0',
+			'1.19.3',
 			true
 		);
 
@@ -1616,14 +1616,15 @@ class WPForms_Frontend {
 	}
 
 	/**
-	 * Hook at fires at a later priority in wp_footer
+	 * Hook at fires at a later priority in wp_footer.
 	 *
 	 * @since 1.0.5
+	 * @since 1.7.0 Load wpforms_settings on the confirmation page for a non-ajax form.
 	 */
 	public function footer_end() {
 
 		if (
-			( empty( $this->forms ) && ! $this->assets_global() ) ||
+			( empty( $this->forms ) && empty( $_POST['wpforms'] ) && ! $this->assets_global() ) || // phpcs:ignore WordPress.Security.NonceVerification.Missing
 			wpforms_is_amp()
 		) {
 			return;
@@ -1760,30 +1761,30 @@ class WPForms_Frontend {
 		return "<script>
 				( function() {
 					function wpforms_js_error_loading() {
-						
+
 						if ( typeof window.wpforms !== 'undefined' ) {
 							return;
 						}
-						
+
 						var forms = document.querySelectorAll( '.wpforms-form' );
-						
+
 						if ( ! forms.length ) {
 							return;
 						}
-						
+
 						var error = document.createElement( 'div' );
 
 						error.classList.add( 'wpforms-error-container' );
 						error.innerHTML = '%s';
 
 						forms.forEach( function( form ) {
-						
+
 							if ( ! form.querySelector( '.wpforms-error-container' ) ) {
 								form.insertBefore( error.cloneNode( true ), form.firstChild );
 							}
 						} );
 					};
-				
+
 					if ( document.readyState === 'loading' ) {
 						document.addEventListener( 'DOMContentLoaded', wpforms_js_error_loading );
 					} else {

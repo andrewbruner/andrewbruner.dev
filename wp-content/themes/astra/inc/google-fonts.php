@@ -400,6 +400,12 @@ return array(
 		),
 	),
 	array(
+		'Are You Serious' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Aref Ruqaa' => array(
 			'variants' => array( 'regular', '700' ), 
 			'category' => 'serif', 
@@ -737,7 +743,7 @@ return array(
 	),
 	array(
 		'Battambang' => array(
-			'variants' => array( 'regular', '700' ), 
+			'variants' => array( '100', '300', 'regular', '700', '900' ), 
 			'category' => 'display', 
 		),
 	),
@@ -750,12 +756,18 @@ return array(
 	array(
 		'Bayon' => array(
 			'variants' => array( 'regular' ), 
-			'category' => 'display', 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
 		'Be Vietnam' => array(
 			'variants' => array( '100', '100italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Be Vietnam Pro' => array(
+			'variants' => array( '100', '100italic', '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -839,37 +851,37 @@ return array(
 	),
 	array(
 		'Big Shoulders Display' => array(
-			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
 		),
 	),
 	array(
 		'Big Shoulders Inline Display' => array(
-			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
 		),
 	),
 	array(
 		'Big Shoulders Inline Text' => array(
-			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
 		),
 	),
 	array(
 		'Big Shoulders Stencil Display' => array(
-			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
 		),
 	),
 	array(
 		'Big Shoulders Stencil Text' => array(
-			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
 		),
 	),
 	array(
 		'Big Shoulders Text' => array(
-			'variants' => array( '100', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
 		),
 	),
@@ -907,6 +919,18 @@ return array(
 		'BioRhyme Expanded' => array(
 			'variants' => array( '200', '300', 'regular', '700', '800' ), 
 			'category' => 'serif', 
+		),
+	),
+	array(
+		'Birthstone' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Birthstone Bounce' => array(
+			'variants' => array( 'regular', '500' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -965,6 +989,12 @@ return array(
 	),
 	array(
 		'Bonbon' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Bonheur Royale' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
 		),
@@ -1168,6 +1198,18 @@ return array(
 		),
 	),
 	array(
+		'Caramel' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Carattere' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Cardo' => array(
 			'variants' => array( 'regular', 'italic', '700' ), 
 			'category' => 'serif', 
@@ -1303,6 +1345,12 @@ return array(
 		'Chenla' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Cherish' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -1930,6 +1978,12 @@ return array(
 		),
 	),
 	array(
+		'Ephesis' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Epilogue' => array(
 			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
@@ -1978,6 +2032,12 @@ return array(
 		),
 	),
 	array(
+		'Explora' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Fahkwang' => array(
 			'variants' => array( '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic' ), 
 			'category' => 'sans-serif', 
@@ -2022,7 +2082,7 @@ return array(
 	array(
 		'Fasthand' => array(
 			'variants' => array( 'regular' ), 
-			'category' => 'serif', 
+			'category' => 'display', 
 		),
 	),
 	array(
@@ -2125,6 +2185,12 @@ return array(
 		'Flavors' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Fleur De Leah' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -2284,6 +2350,12 @@ return array(
 		),
 	),
 	array(
+		'Gemunu Libre' => array(
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Gentium Basic' => array(
 			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
 			'category' => 'serif', 
@@ -2321,6 +2393,12 @@ return array(
 	),
 	array(
 		'Germania One' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Gideon Roman' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),
@@ -2371,6 +2449,12 @@ return array(
 		'Glory' => array(
 			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Gluten' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'display', 
 		),
 	),
 	array(
@@ -2458,6 +2542,12 @@ return array(
 		),
 	),
 	array(
+		'Grechen Fuemen' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Grenze' => array(
 			'variants' => array( '100', '100italic', '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ), 
 			'category' => 'serif', 
@@ -2467,6 +2557,12 @@ return array(
 		'Grenze Gotisch' => array(
 			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Grey Qo' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -2555,7 +2651,7 @@ return array(
 	),
 	array(
 		'Hanuman' => array(
-			'variants' => array( 'regular', '700' ), 
+			'variants' => array( '100', '300', 'regular', '700', '900' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -3202,6 +3298,12 @@ return array(
 		),
 	),
 	array(
+		'Koh Santepheap' => array(
+			'variants' => array( '100', '300', 'regular', '700', '900' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Kosugi' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
@@ -3731,7 +3833,7 @@ return array(
 	),
 	array(
 		'Manuale' => array(
-			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -4768,12 +4870,6 @@ return array(
 		),
 	),
 	array(
-		'Noto Sans MeeteiMayek' => array(
-			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
-			'category' => 'sans-serif', 
-		),
-	),
-	array(
 		'Noto Sans Meroitic' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
@@ -5460,7 +5556,7 @@ return array(
 	array(
 		'Odor Mean Chey' => array(
 			'variants' => array( 'regular' ), 
-			'category' => 'display', 
+			'category' => 'serif', 
 		),
 	),
 	array(
@@ -5501,7 +5597,7 @@ return array(
 	),
 	array(
 		'Open Sans' => array(
-			'variants' => array( '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic', '800', '800italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -5922,7 +6018,7 @@ return array(
 	array(
 		'Preahvihear' => array(
 			'variants' => array( 'regular' ), 
-			'category' => 'display', 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
@@ -6149,13 +6245,13 @@ return array(
 	),
 	array(
 		'Red Hat Display' => array(
-			'variants' => array( 'regular', 'italic', '500', '500italic', '700', '700italic', '900', '900italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '900', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
 	array(
 		'Red Hat Text' => array(
-			'variants' => array( 'regular', 'italic', '500', '500italic', '700', '700italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '300italic', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -6319,6 +6415,12 @@ return array(
 		'Rubik' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700', '800', '900', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Rubik Beastly' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
 		),
 	),
 	array(
@@ -6515,6 +6617,12 @@ return array(
 	),
 	array(
 		'Scheherazade' => array(
+			'variants' => array( 'regular', '700' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
+		'Scheherazade New' => array(
 			'variants' => array( 'regular', '700' ), 
 			'category' => 'serif', 
 		),
@@ -6916,6 +7024,12 @@ return array(
 		),
 	),
 	array(
+		'Stick No Bills' => array(
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Stint Ultra Condensed' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -7013,8 +7127,8 @@ return array(
 	),
 	array(
 		'Suwannaphum' => array(
-			'variants' => array( 'regular' ), 
-			'category' => 'display', 
+			'variants' => array( '100', '300', 'regular', '700', '900' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(
@@ -7480,6 +7594,12 @@ return array(
 		),
 	),
 	array(
+		'Yaldevi' => array(
+			'variants' => array( '200', '300', 'regular', '500', '600', '700' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Yanone Kaffeesatz' => array(
 			'variants' => array( '200', '300', 'regular', '500', '600', '700' ), 
 			'category' => 'sans-serif', 
@@ -7558,15 +7678,57 @@ return array(
 		),
 	),
 	array(
+		'Zen Antique' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
+		'Zen Antique Soft' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
 		'Zen Dots' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),
 	),
 	array(
+		'Zen Kaku Gothic Antique' => array(
+			'variants' => array( '300', 'regular', '500', '700', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Zen Kaku Gothic New' => array(
+			'variants' => array( '300', 'regular', '500', '700', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Zen Kurenaido' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Zen Loop' => array(
 			'variants' => array( 'regular', 'italic' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Zen Maru Gothic' => array(
+			'variants' => array( '300', 'regular', '500', '700', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Zen Old Mincho' => array(
+			'variants' => array( 'regular', '700', '900' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(

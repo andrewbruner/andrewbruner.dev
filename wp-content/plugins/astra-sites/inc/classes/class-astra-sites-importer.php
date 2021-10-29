@@ -166,6 +166,10 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 			$wpforms_url = ( isset( $_REQUEST['wpforms_url'] ) ) ? urldecode( $_REQUEST['wpforms_url'] ) : $wpforms_url;
 			$ids_mapping = array();
 
+			if ( ! astra_sites_is_valid_url( $wpforms_url ) ) {
+				wp_send_json_error( __( 'Invalid Request URL.', 'astra-sites' ) );
+			}
+
 			if ( ! empty( $wpforms_url ) && function_exists( 'wpforms_encode' ) ) {
 
 				// Download JSON file.
@@ -348,51 +352,49 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 
 			$wxr_url = ( isset( $_REQUEST['wxr_url'] ) ) ? urldecode( $_REQUEST['wxr_url'] ) : '';
 
-			if ( isset( $wxr_url ) ) {
-
-				Astra_Sites_Importer_Log::add( 'Importing from XML ' . $wxr_url );
-
-				$overrides = array(
-					'wp_handle_sideload' => 'upload',
-				);
-
-				// Download XML file.
-				$xml_path = Astra_Sites_Helper::download_file( $wxr_url, $overrides );
-
-				if ( $xml_path['success'] ) {
-
-					$post = array(
-						'post_title'     => basename( $wxr_url ),
-						'guid'           => $xml_path['data']['url'],
-						'post_mime_type' => $xml_path['data']['type'],
-					);
-
-					astra_sites_error_log( wp_json_encode( $post ) );
-					astra_sites_error_log( wp_json_encode( $xml_path ) );
-
-					// as per wp-admin/includes/upload.php.
-					$post_id = wp_insert_attachment( $post, $xml_path['data']['file'] );
-
-					astra_sites_error_log( wp_json_encode( $post_id ) );
-
-					if ( is_wp_error( $post_id ) ) {
-						wp_send_json_error( __( 'There was an error downloading the XML file.', 'astra-sites' ) );
-					} else {
-
-						update_option( 'astra_sites_imported_wxr_id', $post_id, 'no' );
-						$attachment_metadata = wp_generate_attachment_metadata( $post_id, $xml_path['data']['file'] );
-						wp_update_attachment_metadata( $post_id, $attachment_metadata );
-						$data        = Astra_WXR_Importer::instance()->get_xml_data( $xml_path['data']['file'], $post_id );
-						$data['xml'] = $xml_path['data'];
-						wp_send_json_success( $data );
-					}
-				} else {
-					wp_send_json_error( $xml_path['data'] );
-				}
-			} else {
-				wp_send_json_error( __( 'Invalid site XML file!', 'astra-sites' ) );
+			if ( ! astra_sites_is_valid_url( $wxr_url ) ) {
+				wp_send_json_error( __( 'Invalid Request URL.', 'astra-sites' ) );
 			}
 
+			Astra_Sites_Importer_Log::add( 'Importing from XML ' . $wxr_url );
+
+			$overrides = array(
+				'wp_handle_sideload' => 'upload',
+			);
+
+			// Download XML file.
+			$xml_path = Astra_Sites_Helper::download_file( $wxr_url, $overrides );
+
+			if ( $xml_path['success'] ) {
+
+				$post = array(
+					'post_title'     => basename( $wxr_url ),
+					'guid'           => $xml_path['data']['url'],
+					'post_mime_type' => $xml_path['data']['type'],
+				);
+
+				astra_sites_error_log( wp_json_encode( $post ) );
+				astra_sites_error_log( wp_json_encode( $xml_path ) );
+
+				// as per wp-admin/includes/upload.php.
+				$post_id = wp_insert_attachment( $post, $xml_path['data']['file'] );
+
+				astra_sites_error_log( wp_json_encode( $post_id ) );
+
+				if ( is_wp_error( $post_id ) ) {
+					wp_send_json_error( __( 'There was an error downloading the XML file.', 'astra-sites' ) );
+				} else {
+
+					update_option( 'astra_sites_imported_wxr_id', $post_id, 'no' );
+					$attachment_metadata = wp_generate_attachment_metadata( $post_id, $xml_path['data']['file'] );
+					wp_update_attachment_metadata( $post_id, $attachment_metadata );
+					$data        = Astra_WXR_Importer::instance()->get_xml_data( $xml_path['data']['file'], $post_id );
+					$data['xml'] = $xml_path['data'];
+					wp_send_json_success( $data );
+				}
+			} else {
+				wp_send_json_error( $xml_path['data'] );
+			}
 		}
 
 		/**
@@ -564,7 +566,7 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 				)
 			);
 
-			$demo_api_uri = add_query_arg( $request_params, $demo_api_uri );
+			$demo_api_uri = add_query_arg( $request_params, trailingslashit( $demo_api_uri ) );
 
 			// API Call.
 			$response = wp_remote_get( $demo_api_uri, $api_args );
@@ -875,7 +877,7 @@ if ( ! class_exists( 'Astra_Sites_Importer' ) ) {
 			$message = '';
 			if ( $term_id ) {
 				$term = get_term( $term_id );
-				if ( ! is_wp_error( $term ) ) {
+				if ( ! is_wp_error( $term ) && ! empty( $term ) && is_object( $term ) ) {
 
 					do_action( 'astra_sites_before_delete_imported_terms', $term_id, $term );
 

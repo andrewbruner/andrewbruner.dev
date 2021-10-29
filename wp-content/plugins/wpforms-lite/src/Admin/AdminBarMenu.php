@@ -118,6 +118,11 @@ class AdminBarMenu {
 
 					if ( ! notifications ) {
 						var menu = document.getElementById( 'wp-admin-bar-wpforms-menu-default' );
+
+						if ( ! menu ) {
+							return;
+						}
+
 						menu.insertAdjacentHTML( 'afterBegin', template.innerHTML );
 					} else {
 						notifications.insertAdjacentHTML( 'afterend', template.innerHTML );

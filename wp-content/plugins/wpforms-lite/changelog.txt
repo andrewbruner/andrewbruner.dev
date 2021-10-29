@@ -1,5 +1,15 @@
 == Changelog ==
 
+= 1.7.0 =
+- Added: Uncanny Automator integration.
+- Changed: Updated jQuery Validation library to v1.9.3.
+- Fixed: Incorrect handling of language files downloads when the plugin is activated, or site language is changed.
+- Fixed: Alignment for admin notification counter.
+- Fixed: Javascript error in Elementor page builder.
+- Fixed: Embedded forms into global sidebar report about an error in the Divi page builder.
+- Fixed: Change settings were not applied for a Duplicated Modern Dropdown field.
+- Fixed: Form fields not displaying full width on mobile devices with Base form styling selected.
+
 = 1.6.9 =
 - Added: Keyboard Shortcuts informational popup in the Form Builder, triggered with `Ctrl + /` shortcut.
 - Added: Separate category for templates added by addons.

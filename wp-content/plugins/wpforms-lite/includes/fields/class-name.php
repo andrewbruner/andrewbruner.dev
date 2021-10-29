@@ -340,7 +340,7 @@ class WPForms_Field_Name extends WPForms_Field {
 		// Hide Label.
 		$this->field_option( 'label_hide', $field );
 
-		// Hide sub-labels.
+		// Hide sublabels.
 		$this->field_option( 'sublabel_hide', $field );
 
 		// Options close markup.

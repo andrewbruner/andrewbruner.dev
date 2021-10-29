@@ -88,7 +88,6 @@ var AstraSitesAjaxQueue = (function () {
 
 		var elementTop = $(this).offset().top;
 		var elementBottom = elementTop + $(this).outerHeight();
-
 		var viewportTop = $(window).scrollTop();
 		var viewportBottom = viewportTop + $(window).height();
 
@@ -558,7 +557,7 @@ var AstraSitesAjaxQueue = (function () {
 
 		_importWPForm: function (wpforms_url, callback) {
 
-			if ('' == wpforms_url || 0 == wpforms_url) {
+			if ( ! wpforms_url) {
 				if (callback && typeof callback == "function") {
 					callback('');
 				}
@@ -998,24 +997,40 @@ var AstraSitesAjaxQueue = (function () {
 
 				AstraElementorSitesAdmin._importWPForm(AstraElementorSitesAdmin.templateData['astra-site-wpforms-path'], function (form_response) {
 
-					fetch(AstraElementorSitesAdmin.templateData['astra-page-api-url'] + '?&site_url=' + astraElementorSites.siteURL).then(response => {
-						return response.json();
-					}).then(data => {
-						AstraElementorSitesAdmin.insertData = data;
-						if ('insert' == AstraElementorSitesAdmin.action) {
-							AstraElementorSitesAdmin._insertDemo(data);
-						} else {
-							AstraElementorSitesAdmin._createTemplate(data);
-						}
-					}).catch(err => {
-						console.log(err);
+					$.ajax({
+						url: astraElementorSites.ajaxurl,
+						type: 'POST',
+						data: {
+							action: 'astra-sites-remote-request',
+							url: AstraElementorSitesAdmin.templateData['astra-page-api-url'],
+							_ajax_nonce: astraElementorSites._ajax_nonce,
+						},
+						beforeSend: function () {
+							console.groupCollapsed('Get Template Details.');
+						},
+					})
+					.fail(function (jqXHR) {
+						console.log(jqXHR);
 						console.groupEnd();
+					})
+					.done(function (response) {
+						console.log( response );
+						console.groupEnd();
+
+						if( response.success ) {
+							AstraElementorSitesAdmin.insertData = response.data;
+							if ('insert' == AstraElementorSitesAdmin.action) {
+								AstraElementorSitesAdmin._insertDemo(response.data);
+							} else {
+								AstraElementorSitesAdmin._createTemplate(response.data);
+							}
+						}
 					});
 				});
 
 			} else {
 
-				let url = (undefined != AstraElementorSitesAdmin.templateData['post-meta']) ? AstraElementorSitesAdmin.templateData['post-meta']['astra-blocks-wpform'] : '';
+				let url = (undefined != AstraElementorSitesAdmin.templateData['post-meta']) ? AstraElementorSitesAdmin.templateData['post-meta']['astra-site-wpforms-path'] : '';
 
 				AstraElementorSitesAdmin._importWPForm(url, function (form_response) {
 					AstraElementorSitesAdmin.insertData = AstraElementorSitesAdmin.templateData;
@@ -1173,9 +1188,9 @@ var AstraSitesAjaxQueue = (function () {
 				let api_url = '';
 
 				if ('blocks' == AstraElementorSitesAdmin.type) {
-					api_url = astraElementorSites.ApiURL + 'astra-blocks/' + data['id'] + '/?&site_url=' + astraElementorSites.siteURL;
+					api_url = astraElementorSites.ApiURL + 'astra-blocks/' + data['id'] + '/';
 				} else {
-					api_url = AstraElementorSitesAdmin.templateData['astra-page-api-url'] + '?&site_url=' + astraElementorSites.siteURL;
+					api_url = AstraElementorSitesAdmin.templateData['astra-page-api-url'] + '/';
 				}
 
 				$.ajax({
@@ -1504,7 +1519,6 @@ var AstraSitesAjaxQueue = (function () {
 				};
 			}
 
-
 			var params = {
 				method: 'GET',
 				cache: 'default',
@@ -1609,7 +1623,9 @@ var AstraSitesAjaxQueue = (function () {
 						required_plugins = response.data['required_plugins'];
 
 						if (response.data['third_party_required_plugins'].length) {
-							output += '<li class="plugin-card plugin-card-' + plugin.slug + '" data-slug="' + plugin.slug + '" data-init="' + plugin.init + '" data-name="' + plugin.name + '">' + plugin.name + '</li>';
+							$( response.data['third_party_required_plugins'] ).each(function (index, plugin) {
+								output += '<li class="plugin-card plugin-card-' + plugin.slug + '" data-slug="' + plugin.slug + '" data-init="' + plugin.init + '" data-name="' + plugin.name + '">' + plugin.name + '</li>';
+							});
 						}
 
 						/**

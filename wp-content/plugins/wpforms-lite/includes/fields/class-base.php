@@ -112,6 +112,9 @@ abstract class WPForms_Field {
 		// The form ID is to be accessed in the builder.
 		$this->form_id = isset( $_GET['form_id'] ) ? (int) $_GET['form_id'] : false; // phpcs:ignore WordPress.Security.NonceVerification
 
+		// Add HTML line breaks before all newlines in Entry Preview.
+		add_filter( "wpforms_pro_fields_entry_preview_get_field_value_{$this->type}_field_after", 'nl2br', 100 );
+
 		// Bootstrap.
 		$this->init();
 
@@ -1382,11 +1385,11 @@ abstract class WPForms_Field {
 				break;
 
 			/*
-			 * Hide Sub-Labels.
+			 * Hide sublabels.
 			 */
 			case 'sublabel_hide':
 				$value   = isset( $field['sublabel_hide'] ) ? $field['sublabel_hide'] : '0';
-				$tooltip = esc_html__( 'Check this option to hide the form field sub-label.', 'wpforms-lite' );
+				$tooltip = esc_html__( 'Check this option to hide the form field sublabel.', 'wpforms-lite' );
 
 				// Build output.
 				$output = $this->field_element(
@@ -1395,7 +1398,7 @@ abstract class WPForms_Field {
 					[
 						'slug'    => 'sublabel_hide',
 						'value'   => $value,
-						'desc'    => esc_html__( 'Hide Sub-Labels', 'wpforms-lite' ),
+						'desc'    => esc_html__( 'Hide Sublabels', 'wpforms-lite' ),
 						'tooltip' => $tooltip,
 					],
 					false

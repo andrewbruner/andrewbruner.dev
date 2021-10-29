@@ -216,6 +216,7 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 				theme: 'modern',
 				boxWidth: '400px',
 				animateFromElement: false,
+				content: wpforms_builder.something_went_wrong,
 			};
 
 			app.dropdownField.init();
@@ -223,6 +224,9 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 			app.initSomeFieldOptions();
 
 			app.dismissNotice();
+
+			// TODO: It should be removed when the UA Uncanny Automator implements it on their side.
+			$( '.uap-wpf-integration-create-recipe-btn' ).attr( 'target', '_blank' );
 		},
 
 		/**
@@ -1321,6 +1325,42 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 		},
 
 		/**
+		 * Update Rich Text media controls by changing checkbox.
+		 *
+		 * @since 1.7.0
+		 */
+		updateRichTextMediaFieldsLimitControls: function() {
+
+			var $this = $( this ),
+				fieldId = $this.closest( '.wpforms-field-option-row-media_enabled' ).data( 'field-id' ),
+				$mediaControls = $( '#wpforms-field-option-row-' + fieldId + '-media_controls' ),
+				$toolbar = $( '#wpforms-field-' + fieldId + ' .wpforms-richtext-wrap .mce-toolbar-grp' );
+
+			if ( ! $this.is( ':checked' ) ) {
+				$mediaControls.hide();
+				$toolbar.removeClass( 'wpforms-field-richtext-media-enabled' );
+			} else {
+				$mediaControls.show();
+				$toolbar.addClass( 'wpforms-field-richtext-media-enabled' );
+			}
+		},
+
+		/**
+		 * Update Rich Text style preview by changing select.
+		 *
+		 * @since 1.7.0
+		 */
+		updateRichTextStylePreview: function() {
+
+			var $this = $( this ),
+				fieldId = $this.closest( '.wpforms-field-option-row-style' ).data( 'field-id' ),
+				$toolbar = $( '#wpforms-field-' + fieldId + ' .wpforms-richtext-wrap .mce-toolbar-grp' );
+
+			$toolbar.toggleClass( 'wpforms-field-richtext-toolbar-basic', $this.val() !== 'full' );
+		},
+
+
+		/**
 		 * Element bindings.
 		 *
 		 * @since 1.0.0
@@ -1968,7 +2008,7 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 
 					// Real-time updates for "Prev" pagebreak field option.
 					var $this = $( this ),
-						value = $this.val(),
+						value = $this.val().trim(),
 						$field = $( '#wpforms-field-' + $this.parent().data( 'field-id' ) ),
 						$prevBtn = $field.find( '.wpforms-pagebreak-prev' );
 
@@ -1984,16 +2024,27 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 					var $input     = $( this ),
 						$wrapper   = $input.closest( '.wpforms-field-option-row-prev_toggle' ),
 						$prev      = $input.closest( '.wpforms-field-option-group-inner' ).find( '.wpforms-field-option-row-prev' ),
-						$prevLabel = $prev.find( 'input' );
+						$prevLabel = $prev.find( 'input' ),
+						$prevBtn   = $( '#wpforms-field-' + $input.closest( '.wpforms-field-option' ).data( 'field-id' ) ).find( '.wpforms-pagebreak-prev' );
 
 					if ( $wrapper.hasClass( 'wpforms-entry-preview-block' ) ) {
 						return;
 					}
 
 					$prev.toggleClass( 'wpforms-hidden', ! $input.prop( 'checked' ) );
+					$prevBtn.toggleClass( 'wpforms-hidden', ! $input.prop( 'checked' ) );
 
 					if ( $input.prop( 'checked' ) && ! $prevLabel.val() ) {
-						$prevLabel.val( wpforms_builder.previous );
+						var message = $prevLabel.data( 'last-value' );
+						message = message && message.trim() ? message.trim() : wpforms_builder.previous;
+
+						$prevLabel.val( message );
+					}
+
+					// Backward compatibility for forms that were created before the toggle was added.
+					if ( ! $input.prop( 'checked' ) ) {
+						$prevLabel.data( 'last-value', $prevLabel.val() );
+						$prevLabel.val( '' );
 					}
 
 					$prevLabel.trigger( 'input' );
@@ -2217,6 +2268,18 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 				function( event ) {
 					app.updatePasswordStrengthControls( $( event.target ).parents( '.wpforms-field-option-row-password-strength' ).data().fieldId, event.target.checked );
 				}
+			);
+
+			$builder.on(
+				'change',
+				'.wpforms-field-option-richtext .wpforms-field-option-row-media_enabled input',
+				app.updateRichTextMediaFieldsLimitControls
+			);
+
+			$builder.on(
+				'change',
+				'.wpforms-field-option-richtext .wpforms-field-option-row-style select',
+				app.updateRichTextStylePreview
 			);
 
 			// File uploader - change style.
@@ -2793,10 +2856,16 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 							btnClass: 'btn-confirm',
 							keys: [ 'enter' ],
 							action: function() {
-								var $fieldOptions = $( '#wpforms-field-option-' + id );
+								var $fieldOptions    = $( '#wpforms-field-option-' + id ),
+									isModernDropdown = app.dropdownField.helpers.isModernSelect( $field.find( '.primary-input' ) );
 
 								// Restore tooltips before cloning.
 								wpf.restoreTooltips( $fieldOptions );
+
+								// Force Modern Dropdown conversion to classic before cloning.
+								if ( isModernDropdown ) {
+									app.dropdownField.helpers.convertModernToClassic( id );
+								}
 
 								var $newField            = $field.clone(),
 									newFieldOptions 	 = $fieldOptions.html(),
@@ -2887,6 +2956,15 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 
 								// Re-init tooltips for new field options panel.
 								wpf.initTooltips();
+
+								// Re-init Modern Dropdown.
+								if ( isModernDropdown ) {
+									app.dropdownField.helpers.convertClassicToModern( id );
+									app.dropdownField.helpers.convertClassicToModern( newFieldID );
+								}
+
+								// Re-init instance in choices related fields.
+								app.fieldChoiceUpdate( $newField.data( 'field-type' ), newFieldID );
 
 								// Lastly, update the next ID stored in database.
 								$.post(
@@ -5951,7 +6029,7 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 		 *
 		 * @returns {string} Smart Tags list markup.
 		 */
-		getSmartTagsList: function( $el, isFieldOption = false ) {
+		getSmartTagsList: function( $el, isFieldOption ) {
 
 			var smartTagList;
 
@@ -6045,7 +6123,7 @@ var WPFormsBuilder = window.WPFormsBuilder || ( function( document, window, $ ) 
 		 *
 		 * @returns {string} Smart Tags list elements markup.
 		 */
-		getSmartTagsListOtherElements( $el, isFieldOption ) {
+		getSmartTagsListOtherElements: function( $el, isFieldOption ) {
 
 			var type = $el.data( 'type' ),
 				smartTagListElements;

@@ -580,10 +580,11 @@ class WPForms_Builder {
 			'ms_win_css_url'                 => WPFORMS_PLUGIN_URL . 'assets/css/builder/builder-ms-win.css',
 			'template_addon_prompt'          => esc_html__( 'The %template% template requires the %addons%. Would you like to install and activate it?', 'wpforms-lite' ),
 			'template_addons_prompt'         => esc_html__( 'The %template% template requires the %addons%. Would you like to install and activate all the required addons?', 'wpforms-lite' ),
-			'template_addons_error'          => esc_html__( 'Could not install OR activate all the required addons. Please download from wpforms.com and install manually. Would you like to use the template anyway?', 'wpforms-lite' ),
+			'template_addons_error'          => esc_html__( 'Could not install OR activate all the required addons. Please download from wpforms.com and install them manually. Would you like to use the template anyway?', 'wpforms-lite' ),
 			'use_template'                   => esc_html__( 'Yes, use template', 'wpforms-lite' ),
 			'error_select_template'          => esc_html__( 'Something went wrong while applying the template.', 'wpforms-lite' ),
 			'blank_form'                     => esc_html__( 'Blank Form', 'wpforms-lite' ),
+            'something_went_wrong'           => esc_html__( 'Something went wrong', 'wpforms-lite' ),
 		];
 
 		$strings['disable_entries'] = sprintf(

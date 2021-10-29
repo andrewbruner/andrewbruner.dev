@@ -49,6 +49,11 @@
           "color": "var(--ast-global-color-8)"
         }
       ]
+    },
+    "layout": {
+      "contentSize": "var(--ast-content-width-size)",
+      "wideSize": "1200px",
+      "fullSize": "none"
     }
   }
 }

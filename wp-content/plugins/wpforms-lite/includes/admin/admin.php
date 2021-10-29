@@ -132,8 +132,8 @@ function wpforms_admin_scripts() {
 		'addon_deactivate'                => esc_html__( 'Deactivate', 'wpforms-lite' ),
 		'addon_inactive'                  => esc_html__( 'Inactive', 'wpforms-lite' ),
 		'addon_install'                   => esc_html__( 'Install Addon', 'wpforms-lite' ),
-		'addon_error'                     => esc_html__( 'Could not install addon. Please download from wpforms.com and install manually.', 'wpforms-lite' ),
-		'plugin_error'                    => esc_html__( 'Could not install a plugin. Please download from WordPress.org and install manually.', 'wpforms-lite' ),
+		'addon_error'                     => esc_html__( 'Could not install the addon. Please download it from wpforms.com and install it manually.', 'wpforms-lite' ),
+		'plugin_error'                    => esc_html__( 'Could not install the plugin automatically. Please download and install it manually.', 'wpforms-lite' ),
 		'addon_search'                    => esc_html__( 'Searching Addons', 'wpforms-lite' ),
 		'ajax_url'                        => admin_url( 'admin-ajax.php' ),
 		'cancel'                          => esc_html__( 'Cancel', 'wpforms-lite' ),
@@ -206,6 +206,7 @@ function wpforms_admin_scripts() {
 		'choicesjs_item_select'           => esc_html__( 'Press to select', 'wpforms-lite' ),
 		'debug'                           => wpforms_debug(),
 		'edit_license'                    => esc_html__( 'To edit the License Key, please first click the Deactivate Key button. Please note that deactivating this key will remove access to updates, addons, and support.', 'wpforms-lite' ),
+		'something_went_wrong'            => esc_html__( 'Something went wrong', 'wpforms-lite' ),
 	];
 	$strings = apply_filters( 'wpforms_admin_strings', $strings );
 
