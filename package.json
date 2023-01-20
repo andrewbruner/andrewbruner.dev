@@ -1,0 +1,19 @@
+{
+  "name": "andrewbruner.dev",
+  "version": "1.0.0",
+  "description": "Personal website of Andrew Bruner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewbruner/andrewbruner.dev.git"
+  },
+  "author": "Andrew Bruner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewbruner/andrewbruner.dev/issues"
+  },
+  "homepage": "https://github.com/andrewbruner/andrewbruner.dev#readme"
+}
