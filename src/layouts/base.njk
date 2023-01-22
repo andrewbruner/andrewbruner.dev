@@ -1,0 +1,194 @@
+---
+siteTitle: Andrew Bruner
+siteAuthor: Andrew Bruner
+siteDescription: Front-end web and JavaScript developer
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ siteTitle }}</title>
+    <meta name="author" content="{{ siteAuthor }}" />
+    <meta name="description" content="{{ siteDescription }}" />
+    <meta name="keywords" content="developer,web developer,front-end,javascript" />
+		<link rel="stylesheet" href="/css/prism-vsc-dark-plus.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  </head>
+	<body>
+    <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+		<nav id="header" class="fixed w-full z-10 top-0 bg-gray-100">
+			<div id="progress" class="h-1 z-20 top-0" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
+			<div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
+				<div class="pl-4">
+					<a class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl" href="/">
+						{{ siteTitle }}
+					</a>
+				</div>
+				<div class="block lg:hidden pr-4">
+					<button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-green-500 appearance-none focus:outline-none">
+						<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<title>Menu</title>
+							<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+						</svg>
+					</button>
+				</div>
+				<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-100 md:bg-transparent z-20" id="nav-content">
+					<ul class="list-reset lg:flex justify-end flex-1 items-center">
+						<li class="mr-3">
+							<a class="inline-block py-2 px-4 text-gray-900 font-bold no-underline" href="/">Blog</a>
+						</li>
+						<li class="mr-3">
+							<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" href="https://github.com/andrewbruner">GitHub</a>
+						</li>
+						<li class="mr-3">
+							<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" href="https://fosstodon.org/@andrewbruner">Mastodon</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+    <div class="container w-full md:max-w-3xl mx-auto pt-20">
+		  {{ content | safe }}
+		</div>
+
+    <footer class="bg-white border-t border-gray-400 shadow">
+			<div class="container max-w-4xl mx-auto flex py-8">
+				<div class="w-full mx-auto flex flex-wrap">
+					<div class="flex w-full md:w-1/2 ">
+						<div class="px-8">
+							<h3 class="font-bold text-gray-900">About</h3>
+							<p class="py-4 text-gray-600 text-sm">
+								Hi. My name is Andrew.<br />I'm a front-end-web and JavaScript developer.
+							</p>
+						</div>
+					</div>
+					<div class="flex w-full md:w-1/2">
+						<div class="px-8">
+							<h3 class="font-bold text-gray-900">Social</h3>
+							<ul class="list-reset items-center text-sm pt-3">
+								<li>
+									<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="https://github.com/andrewbruner">GitHub</a>
+								</li>
+								<li>
+									<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="https://fosstodon.org/@andrewbruner">Mastodon</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<small class="pt-4 px-8 text-gray-600 text-sm">&copy; 2021-<script>document.write(new Date().getFullYear())</script> Andrew Bruner</small>
+				</div>
+			</div>
+		</footer>
+
+    <script>
+			/* Progress bar */
+			//Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+			var h = document.documentElement,
+			b = document.body,
+			st = 'scrollTop',
+			sh = 'scrollHeight',
+			progress = document.querySelector('#progress'),
+			scroll;
+			var scrollpos = window.scrollY;
+			var header = document.getElementById("header");
+			var navcontent = document.getElementById("nav-content");
+
+			document.addEventListener('scroll', function() {
+
+				/*Refresh scroll % width*/
+				scroll = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+				progress.style.setProperty('--scroll', scroll + '%');
+
+				/*Apply classes for slide in bar*/
+				scrollpos = window.scrollY;
+
+				if (scrollpos > 10) {
+					header.classList.remove('bg-gray-100');
+					header.classList.add("bg-white");
+					header.classList.add("shadow");
+					navcontent.classList.remove("bg-gray-100");
+					navcontent.classList.add("bg-white");
+				} else {
+					header.classList.remove("bg-white");
+					header.classList.add('bg-gray-100');
+					header.classList.remove("shadow");
+					navcontent.classList.remove("bg-white");
+					navcontent.classList.add("bg-gray-100");
+				}
+			});
+
+			//Javascript to toggle the menu
+			document.getElementById('nav-toggle').onclick = function() {
+				document.getElementById("nav-content").classList.toggle("hidden");
+				if (window.scrollY <= 10) {
+					document.querySelector('#header').classList.toggle('shadow');
+				}
+			}
+
+			/*Apply tailwind classes for .post-content*/
+			const h1List = document.querySelectorAll('.post-content h1');
+			for (h1 of h1List) {
+				h1.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'mt-0', 'mb-7', 'text-3xl', 'md:text-4xl');
+			}
+			const h2List = document.querySelectorAll('.post-content h2');
+			for (h2 of h2List) {
+				h2.classList.add('font-semibold', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-8', 'text-2xl', 'md:text-3xl');
+			}
+			const h3List = document.querySelectorAll('.post-content h3');
+			for (h3 of h3List) {
+				h3.classList.add('font-medium', 'font-sans', 'break-normal', 'text-gray-900', 'mt-10', 'mb-4', 'text-xl', 'md:text-2xl');
+			}
+			const h4List = document.querySelectorAll('.post-content h4');
+			for (h4 of h4List) {
+				h4.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-lg', 'md:text-xl');
+			}
+			const h5List = document.querySelectorAll('.post-content h5');
+			for (h5 of h5List) {
+				h5.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-base', 'md:text-lg');
+			}
+			const h6List = document.querySelectorAll('.post-content h6');
+			for (h6 of h6List) {
+				h6.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-base', 'md:text-base');
+			}
+			const pList = document.querySelectorAll('.post-content p');
+			for (p of pList) {
+				p.classList.add('my-6');
+			}
+			const ulList = document.querySelectorAll('.post-content ul');
+			for (ul of ulList) {
+				ul.classList.add('list-disc', 'pl-6');
+			}
+			const olList = document.querySelectorAll('.post-content ol');
+			for (ol of olList) {
+				ol.classList.add('list-decimal', 'pl-6');
+			}
+			const liList = document.querySelectorAll('.post-content li');
+			for (li of liList) {
+				li.classList.add('my-3');
+			}
+			const aList = document.querySelectorAll('.post-content a');
+			for (a of aList) {
+				a.classList.add('text-green-500', 'no-underline', 'hover:underline');
+			}
+			const blockquoteList = document.querySelectorAll('.post-content blockquote');
+			for (blockquote of blockquoteList) {
+				blockquote.classList.add('border-l-4', 'border-green-500', 'italic', 'my-8', 'pl-8', 'md:pl-12');
+			}
+			const preList = document.querySelectorAll('pre');
+			for (pre of preList) {
+				pre.classList.add('rounded', 'my-6', 'text-sm');
+			}
+			const codeList = document.querySelectorAll('.post-content code');
+			for (code of codeList) {
+				if (code.parentElement.tagName.toLowerCase() !== 'pre') {
+					code.classList.add('rounded', 'break-words', 'whitespace-pre-wrap', 'p-1', 'text-base', 'bg-gray-300');
+					code.style.boxDecorationBreak = 'clone';
+					code.style.webkitBoxDecorationBreak = 'clone';
+				}
+			}
+		</script>
+	</body>
+</html>

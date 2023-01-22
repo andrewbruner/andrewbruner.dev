@@ -4,6 +4,8 @@
   "description": "Personal website of Andrew Bruner",
   "main": "index.js",
   "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/andrewbruner/andrewbruner.dev/issues"
   },
-  "homepage": "https://github.com/andrewbruner/andrewbruner.dev#readme"
+  "homepage": "https://github.com/andrewbruner/andrewbruner.dev#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0-beta.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0"
+  }
 }
