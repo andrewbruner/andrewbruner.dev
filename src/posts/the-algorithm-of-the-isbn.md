@@ -3,6 +3,7 @@ postTitle: The Algorithm of the ISBN
 published: '10 October 2021'
 layout: post.njk
 permalink: '/{{ postTitle | slugify }}/'
+labels: ['javascript', 'algorithms']
 ---
 
 Today I learned that the ISBN numbers on books have a built-in validation algorithm. Follow along here to see how I wrote my own JavaScript function that uses this algorithm and validates any ISBN argument given to it.

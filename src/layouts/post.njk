@@ -15,7 +15,10 @@ layout: base.njk
 	</div>
 
 	<!--Tags -->
-	<div class="text-base md:text-sm text-gray-500 px-4 py-6">
-		Tags: <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a> . <a href="#" class="text-base md:text-sm text-green-500 no-underline hover:underline">Link</a>
-	</div>
+	{# <div class="text-base md:text-sm text-gray-500 px-4 py-6">
+		Tags: /
+		{% for label in labels %}
+			<a href="{{ url }}" class="text-base md:text-sm text-green-500 no-underline hover:underline">{{ label }}</a> /
+		{% endfor %}
+	</div> #}
 </div>
