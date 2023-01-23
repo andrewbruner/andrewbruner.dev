@@ -3,6 +3,7 @@ layout: base.njk
 ---
 
 {% for post in collections.posts | reverse %}
+{% if loop.index0 < 5 %}
 <!--Post-->
 <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
 	<!--Title-->
@@ -12,8 +13,8 @@ layout: base.njk
 	</div>
 
 	<!--Post Content-->
-	<div class="post-content">
-		{{ post.content | safe }}
+	<div class="post-description">
+		<p class="my-6 italic text-base">{{ post.data.description }}</p>
 	</div>
 
 	<!--Tags -->
@@ -27,6 +28,7 @@ layout: base.njk
 	<!--Divider-->
 	<hr class="border-b-2 border-gray-400 mb-8 mx-4">
 </div>
+{% endif %}
 {% endfor %}
 
 <!--Next & Prev Links-->
