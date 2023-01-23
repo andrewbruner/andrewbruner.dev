@@ -1,0 +1,16 @@
+---
+layout: base
+eleventyExcludeFromCollections: true
+---
+
+<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
+	<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center">All Posts</h1>
+	{% for post in collections.posts | reverse %}
+	<div class="font-sans">
+		<h2 class="font-sans break-normal text-gray-900 mt-6 mb-1 text-2xl md:text-3xl">
+			<a class="text-green-500 no-underline hover:underline" href=".{{ post.url }}">{{ post.data.postTitle }}</a>
+		</h1>
+		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 ml-4">Published {{ post.data.published }}</p>
+	</div>
+	{% endfor %}
+</div>
