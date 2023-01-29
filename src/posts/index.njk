@@ -1,16 +1,49 @@
 ---
-layout: base
+layout: base.njk
 eleventyExcludeFromCollections: true
+pagination:
+  data: collections.posts
+  size: 10
+  reverse: true
+permalink: "/posts/{% if pagination.pageNumber > 0 %}/page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
 ---
 
-<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
-	<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center">All Posts</h1>
-	{% for post in collections.posts | reverse %}
-	<div class="font-sans">
-		<h2 class="font-sans break-normal text-gray-900 mt-6 mb-1 text-2xl md:text-3xl">
-			<a class="text-green-500 no-underline hover:underline" href=".{{ post.url }}">{{ post.data.postTitle }}</a>
-		</h1>
-		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 ml-4">Published {{ post.data.published }}</p>
-	</div>
-	{% endfor %}
-</div>
+{# html #}
+	{# body #}
+		{# div .container #}
+      {% for post in pagination.items %}
+      <!--Post-->
+			<div class="w-full px-4 md:px-6">
+				<!--Title-->
+				<h1 class=" text-xl md:text-2xl">
+					<a class="text-green-500 hover:underline" href="{{ post.url }}">{{ post.data.postTitle }}</a>
+				</h1>
+				<p class="mb-9 ml-4 text-gray-600 text-xs md:text-sm">{{ post.data.published }}</p>
+      </div>
+      {% endfor %}
+      
+      <div class="flex justify-between mb-12 mt-8 mx-4 text-gray-600 text-sm md:text-base">
+        <div>
+          {% if page.url != pagination.href.first %}
+          {% if pagination.href.previous != pagination.href.first %}
+          <a class="inline-block w-20 hover:text-gray-900 hover:underline" href="{{ pagination.href.first }}"><< First</a>
+          {% else %}
+          <span class="inline-block w-20"></span>
+          {% endif %}
+          <a class="inline-block w-20 hover:text-gray-900 hover:underline" href="{{ pagination.href.previous }}">< Previous</a>
+          {% endif %}
+        </div>
+        <div>
+          {% if page.url != pagination.href.last %}
+          <a class="inline-block text-right w-20 hover:text-gray-900 hover:underline" href="{{ pagination.href.next }}">Next ></a>
+          {% if pagination.href.next != pagination.href.last %}
+          <a class="inline-block text-right w-20 hover:text-gray-900 hover:underline" href="{{ pagination.href.last }}">Last >></a>
+          {% else %}
+          <span class="inline-block w-20"></span>
+          {% endif %}
+          {% endif %}
+        </div>
+      </div>
+		{# /div .container #}
+	{# /body #}
+{# /html #}
