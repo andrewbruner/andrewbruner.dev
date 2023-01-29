@@ -2,50 +2,30 @@
 layout: base.njk
 ---
 
-{% for post in collections.posts | reverse %}
-{% if loop.index0 < 5 %}
-<!--Post-->
-<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
-	<!--Title-->
-	<div class="font-sans">
-		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center"><a class="text-green-500 no-underline hover:underline" href=".{{ post.url }}">{{ post.data.postTitle }}</a></h1>
-		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">Published {{ post.data.published }}</p>
-	</div>
+{# html #}
+	{# body #}
+		{# div .container #}
+			{% for post in collections.posts | reverse %}
+			{% if loop.index0 < 5 %}
+			<!--Post-->
+			<div class="w-full px-4 md:px-6">
+				<!--Title-->
+				<h1 class="font-bold mb-8 text-3xl text-center md:text-4xl">
+					<a class="text-green-500 hover:underline" href=".{{ post.url }}">{{ post.data.postTitle }}</a>
+				</h1>
+				<p class="mb-9 text-center text-gray-600 text-sm md:text-base">Published {{ post.data.published }}</p>
 
-	<!--Post Content-->
-	<div class="post-description">
-		<p class="my-6 italic text-base">{{ post.data.description }}</p>
-	</div>
+				<!--Description-->
+				<p class="font-light italic my-6">{{ post.data.description }}..</p>
 
-	<!--Tags -->
-	{# <div class="text-base md:text-sm text-gray-500 px-4 py-6">
-		Tags: /
-		{% for label in post.data.labels %}
-			<a href="{{ post.url }}" class="text-base md:text-sm text-green-500 no-underline hover:underline">{{ label }}</a> /
-		{% endfor %}
-	</div> #}
+				<!--Divider-->
+				<hr class="border-b-2 border-gray-400 mb-8 mx-4">
+			</div>
+			{% endif %}
+			{% endfor %}
 
-	<!--Divider-->
-	<hr class="border-b-2 border-gray-400 mb-8 mx-4">
-</div>
-{% endif %}
-{% endfor %}
-
-<!--Next & Prev Links-->
-{# <div class="font-sans flex justify-between content-center px-4 pb-12">
-	<div class="text-left">
-		<a href="#"><span class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">&lt; Previous</span></a>
-	</div>
-	<div class="text-right">
-		<a href="#"><span class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">Next &gt;</span></a>
-	</div>
-</div> #}
-
-<!--More Posts Link-->
-<div class="font-sans text-center mb-12">
-	<a href="/posts">
-		<span class="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline">
-			More Posts
-		</span>
-	</a>
-</div>
+			<!--More Posts Link-->
+			<a class="block font-medium mb-12 text-center text-green-500 hover:underline md:text-sm" href="./posts">More Posts</a>
+		{# /div .container #}
+	{# /body #}
+{# /html #}
