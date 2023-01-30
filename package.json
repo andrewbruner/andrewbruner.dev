@@ -20,6 +20,7 @@
   "homepage": "https://github.com/andrewbruner/andrewbruner.dev#readme",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-beta.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0"
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "firebase": "^9.16.0"
   }
 }
