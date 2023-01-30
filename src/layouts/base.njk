@@ -15,8 +15,9 @@ siteKeywords: [developer, web developer, front-end, javascript,]
     <meta name="description" content="{{ siteDescription }}" />
     <meta name="keywords" content="{{ siteKeywords }}" />
 		<link rel="stylesheet" href="/css/prism-vsc-dark-plus.css" />
+		<link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-  </head>
+	</head>
 
 	<body class="bg-gray-100 font-sans">
 		<header class="bg-gray-100 fixed top-0 w-full z-10">
@@ -108,68 +109,6 @@ siteKeywords: [developer, web developer, front-end, javascript,]
 					header.classList.toggle('shadow');
 				}
 			});
-
-			/*Apply tailwind classes for .post-content*/
-			const h1List = document.querySelectorAll('.post-content h1');
-			for (h1 of h1List) {
-				h1.classList.add('font-bold', 'font-sans', 'break-normal', 'text-gray-900', 'mt-0', 'mb-7', 'text-3xl', 'md:text-4xl');
-			}
-			const h2List = document.querySelectorAll('.post-content h2');
-			for (h2 of h2List) {
-				h2.classList.add('font-semibold', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-8', 'text-2xl', 'md:text-3xl');
-			}
-			const h3List = document.querySelectorAll('.post-content h3');
-			for (h3 of h3List) {
-				h3.classList.add('font-medium', 'font-sans', 'break-normal', 'text-gray-900', 'mt-10', 'mb-4', 'text-xl', 'md:text-2xl');
-			}
-			const h4List = document.querySelectorAll('.post-content h4');
-			for (h4 of h4List) {
-				h4.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-lg', 'md:text-xl');
-			}
-			const h5List = document.querySelectorAll('.post-content h5');
-			for (h5 of h5List) {
-				h5.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-base', 'md:text-lg');
-			}
-			const h6List = document.querySelectorAll('.post-content h6');
-			for (h6 of h6List) {
-				h6.classList.add('font-normal', 'font-sans', 'break-normal', 'text-gray-900', 'mt-14', 'mb-6', 'text-base', 'md:text-base');
-			}
-			const pList = document.querySelectorAll('.post-content p');
-			for (p of pList) {
-				p.classList.add('my-6');
-			}
-			const ulList = document.querySelectorAll('.post-content ul');
-			for (ul of ulList) {
-				ul.classList.add('list-disc', 'pl-6');
-			}
-			const olList = document.querySelectorAll('.post-content ol');
-			for (ol of olList) {
-				ol.classList.add('list-decimal', 'pl-6');
-			}
-			const liList = document.querySelectorAll('.post-content li');
-			for (li of liList) {
-				li.classList.add('my-3');
-			}
-			const aList = document.querySelectorAll('.post-content a');
-			for (a of aList) {
-				a.classList.add('text-green-500', 'no-underline', 'hover:underline');
-			}
-			const blockquoteList = document.querySelectorAll('.post-content blockquote');
-			for (blockquote of blockquoteList) {
-				blockquote.classList.add('border-l-4', 'border-green-500', 'italic', 'my-8', 'pl-8', 'md:pl-12');
-			}
-			const preList = document.querySelectorAll('pre');
-			for (pre of preList) {
-				pre.classList.add('rounded', 'my-6', 'text-sm');
-			}
-			const codeList = document.querySelectorAll('.post-content code');
-			for (code of codeList) {
-				if (code.parentElement.tagName.toLowerCase() !== 'pre') {
-					code.classList.add('rounded', 'break-words', 'whitespace-pre-wrap', 'p-1', 'text-base', 'bg-gray-300');
-					code.style.boxDecorationBreak = 'clone';
-					code.style.webkitBoxDecorationBreak = 'clone';
-				}
-			}
 		</script>
 	</body>
 </html>
