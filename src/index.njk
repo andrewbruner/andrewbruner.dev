@@ -1,0 +1,31 @@
+---
+layout: base.njk
+---
+
+{# html #}
+	{# body #}
+		{# div .container #}
+			{% for post in collections.posts | reverse %}
+			{% if loop.index0 < 5 %}
+			<!--Post-->
+			<div class="w-full px-4 md:px-6">
+				<!--Title-->
+				<h1 class="font-bold mb-8 text-3xl text-center md:text-4xl">
+					<a class="text-green-500 hover:underline" href=".{{ post.url }}">{{ post.data.postTitle }}</a>
+				</h1>
+				<p class="mb-9 text-center text-gray-600 text-sm md:text-base">Published {{ post.data.published }}</p>
+
+				<!--Description-->
+				<p class="font-light italic my-6">{{ post.data.description }}..</p>
+
+				<!--Divider-->
+				<hr class="border-b-2 border-gray-400 mb-8 mx-4">
+			</div>
+			{% endif %}
+			{% endfor %}
+
+			<!--More Posts Link-->
+			<a class="block font-medium mb-12 text-center text-green-500 hover:underline md:text-sm" href="./posts">More Posts</a>
+		{# /div .container #}
+	{# /body #}
+{# /html #}

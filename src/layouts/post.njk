@@ -1,0 +1,24 @@
+---
+layout: base.njk
+---
+
+<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal">
+	<!--Title-->
+	<div class="font-sans">
+		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center">{{ postTitle }}</h1>
+		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">Published {{ published }}</p>
+	</div>
+
+	<!--Post Content-->
+	<div class="post-content">
+		{{ content | safe }}
+	</div>
+
+	<!--Tags -->
+	{# <div class="text-base md:text-sm text-gray-500 px-4 py-6">
+		Tags: /
+		{% for label in labels %}
+			<a href="{{ url }}" class="text-base md:text-sm text-green-500 no-underline hover:underline">{{ label }}</a> /
+		{% endfor %}
+	</div> #}
+</div>
