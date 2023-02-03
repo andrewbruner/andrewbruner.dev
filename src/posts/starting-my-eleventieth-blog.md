@@ -1,8 +1,6 @@
 ---
 postTitle: Starting My Eleventieth Blog
-published: '23 January 2023'
-layout: post.njk
-permalink: '/{{ postTitle | slugify }}/'
+date: 2023-01-23
 labels: ['blogging', 'templates']
 description: "Lately, I've had inspiration to begin writing... again. I have a background in studying English literature in college, and have plenty of essays under my belt pertaining to literary criticism and interpretation of themes and theory in fiction. As I'm digging more and more into new web technologies though, I have a great curiosity toward technical writing, especially as it pertains to code documentation and implementation guides."
 
