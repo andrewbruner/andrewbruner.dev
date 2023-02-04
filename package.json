@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy",
+    "build-gh": "npx @11ty/eleventy --output=gh-pages --pathprefix=andrewbruner.dev",
     "serve": "npx @11ty/eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
