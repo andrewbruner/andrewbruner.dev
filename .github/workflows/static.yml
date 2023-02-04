@@ -2,7 +2,7 @@ name: deploy-github-pages
 on:
   push:
     branches: ['develop']
-  workflow_dispatch
+  workflow_dispatch:
 
 permissions:
   contents: read
