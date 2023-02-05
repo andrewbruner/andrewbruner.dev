@@ -1,4 +1,5 @@
 {
-	"layout": "base.njk",
-	"tags": "posts"
+	"layout": "post.njk",
+	"tags": "posts",
+	"permalink": "/{{ postTitle | slugify }}/"
 }
