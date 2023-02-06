@@ -48,3 +48,20 @@ To print the above file tree in the terminal, see below:
 *Syntax*
 
 `tree <show hidden files> <ignore .git and node_modules> <list directories first> </path/to/directory>`
+
+# Deployment
+
+- To add new post, create new markdown file in `/posts` directory as `<new-post-title>.md`
+- To run local server for testing, run command `npm run serve`
+
+## GitHub Pages
+
+- For GitHub Pages build step, run command `npm run github-pages`
+- For GitHub Pages deployment, commit and push to `develop` branch.
+- To skip GitHub Pages deployment with change to `develop` branch, add string `[skip ci]` to commit message.
+
+## Firebase
+
+- For Firebase build step, run command `npm run build`
+- For Firebase pre-deployment, create/merge pull request for `main` branch with title: `Deploy vX.Y.Z`
+- For Firebase deployment, run command `npx firebase deploy`
