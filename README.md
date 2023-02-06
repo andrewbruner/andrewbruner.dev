@@ -65,3 +65,13 @@ To print the above file tree in the terminal, see below:
 - For Firebase build step, run command `npm run build`
 - For Firebase pre-deployment, create/merge pull request for `main` branch with title: `Deploy vX.Y.Z`
 - For Firebase deployment, run command `npx firebase deploy`
+
+# Versioning
+
+**Major.Minor.Patch**
+
+**Major:** Overall site redesign or change in functionality
+
+**Minor:** New blog post or feature
+
+**Patch:** Typo/bug fixes or smaller edits
