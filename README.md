@@ -68,10 +68,4 @@ To print the above file tree in the terminal, see below:
 
 # Versioning
 
-**Major.Minor.Patch**
-
-**Major:** Overall site redesign or change in functionality
-
-**Minor:** New blog post or feature
-
-**Patch:** Typo/bug fixes or smaller edits
+**Major . Minor . Patch/Article**
