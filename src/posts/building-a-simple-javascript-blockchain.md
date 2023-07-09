@@ -1,6 +1,6 @@
 ---
 postTitle: Building a Simple JavaScript Blockchain
-date: 2021-08-15
+date: 2021-08-15 00:00:00 -5:00
 labels: ['javascript', 'blockchain']
 description: 'When I learn about a new technology, I like to dive in deep: reading articles and documentation, watching videos, and experimenting with code. Recently, I got into blockchain technology and after wrapping my head around the initial concept, I was inspired to create my own blockchain (albeit rudimentary).'
 ---
