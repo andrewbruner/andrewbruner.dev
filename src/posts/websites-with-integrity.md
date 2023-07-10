@@ -1,6 +1,7 @@
 ---
 postTitle: Websites with Integrity
 date: 2021-08-22 00:00:00 -5:00
+history: [2021-08-22 00:00:00 -5:00]
 labels: ['html']
 description: 'I was recently listening to a podcast episode of Syntax where the subject of HTML <link> tags was discussed. One of the many reasons we may use link tags is to link our page to another document, like a CSS stylesheet, a web font, or a file from a content delivery network (CDN).'
 ---

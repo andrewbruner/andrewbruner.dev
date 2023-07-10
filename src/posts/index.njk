@@ -18,7 +18,14 @@ permalink: "/posts/{% if pagination.pageNumber > 0 %}/page-{{ pagination.pageNum
 				<h1 class=" text-xl md:text-2xl">
 					<a class="text-green-500 hover:underline" href="{{ post.url }}">{{ post.data.postTitle }}</a>
 				</h1>
-				<p class="mb-9 ml-4 text-gray-600 text-xs md:text-sm">{{ post.date.getDate() }} {{ months[post.date.getMonth()] }} {{ post.date.getFullYear() }}</p>
+				<p class="mb-9 ml-4 text-gray-600 text-xs md:text-sm">
+          {% if post.data.history.length > 1 %}
+						Modified
+					{% else %}
+						Created
+					{% endif %}
+					{{ post.data.history[post.data.history.length - 1].getDate() }} {{ months[post.data.history[post.data.history.length - 1].getMonth()] }} {{ post.data.history[post.data.history.length - 1].getFullYear() }}
+				</p>
       </div>
       {% endfor %}
       

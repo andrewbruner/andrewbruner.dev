@@ -13,7 +13,14 @@ layout: base.njk
 				<h1 class="font-bold mb-8 text-3xl text-center md:text-4xl">
 					<a class="text-green-500 hover:underline" href="{{ post.url }}">{{ post.data.postTitle }}</a>
 				</h1>
-				<p class="mb-9 text-center text-gray-600 text-sm md:text-base">Published {{ post.date.getDate() }} {{ months[post.date.getMonth()] }} {{ post.date.getFullYear() }}</p>
+				<p class="mb-9 text-center text-gray-600 text-sm md:text-base">
+					{% if post.data.history.length > 1 %}
+						Modified
+					{% else %}
+						Created
+					{% endif %}
+					{{ post.data.history[post.data.history.length - 1].getDate() }} {{ months[post.data.history[post.data.history.length - 1].getMonth()] }} {{ post.data.history[post.data.history.length - 1].getFullYear() }}
+				</p>
 
 				<!--Description-->
 				<p class="font-light italic my-6">{{ post.data.description }}..</p>

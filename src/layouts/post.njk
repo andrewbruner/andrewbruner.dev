@@ -7,7 +7,16 @@ layout: base.njk
 	<div class="font-sans">
 		<span class="text-base md:text-sm text-green-500 font-bold uppercase">< <a href="/" class="hover:underline">Back to blog</a></span>
 		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center">{{ postTitle }}</h1>
-		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">Published {{ date.getDate() }} {{ months[date.getMonth()] }} {{ date.getFullYear() }}</p>
+		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">
+			{% for date in history %}
+				{% if loop.first or loop.last %}
+					{{ date.getDate() }} {{ months[date.getMonth()] }} {{ date.getFullYear() }}
+				{% endif %}
+				{% if loop.first and loop.length > 1 %}
+					&mdash;
+				{% endif %}
+			{% endfor %}
+		</p>
 	</div>
 
 	<!--Post Content-->
