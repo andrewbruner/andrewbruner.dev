@@ -1,5 +1,5 @@
 ---
-postTitle: The Algorithm of the ISBN
+title: The Algorithm of the ISBN
 date: 2021-10-10 00:00:00 -5:00
 history: [2021-10-10 00:00:00 -5:00]
 labels: ['javascript', 'algorithms']

@@ -1,5 +1,5 @@
 ---
-postTitle: Building a Simple JavaScript Blockchain
+title: Building a Simple JavaScript Blockchain
 date: 2021-08-15 00:00:00 -5:00
 history: [2021-08-15 00:00:00 -5:00]
 labels: ['javascript', 'blockchain']

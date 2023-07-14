@@ -1,5 +1,5 @@
 ---
-postTitle: Websites with Integrity
+title: Websites with Integrity
 date: 2021-08-22 00:00:00 -5:00
 history: [2021-08-22 00:00:00 -5:00]
 labels: ['html']

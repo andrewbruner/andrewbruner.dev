@@ -6,7 +6,7 @@ layout: base.njk
 	<!--Title-->
 	<div class="font-sans">
 		<span class="text-base md:text-sm text-green-500 font-bold uppercase">< <a href="/" class="hover:underline">Back to blog</a></span>
-		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center">{{ postTitle }}</h1>
+		<h1 class="font-bold font-sans break-normal text-gray-900 mt-6 mb-8 text-3xl md:text-4xl text-center">{{ title }}</h1>
 		<p class="text-sm md:text-base font-normal text-gray-600 mb-9 text-center">
 			{% for date in history %}
 				{% if loop.first or loop.last %}
@@ -31,14 +31,14 @@ layout: base.njk
 			{% set previousPost = collections.posts | getPreviousCollectionItem %}
 			{% if previousPost %}
 			<span class="text-xs md:text-sm font-normal text-gray-600">< Previous Post</span><br>
-			<p><a href="{{ previousPost.url }}" class="text-base md:text-sm text-green-500 font-bold hover:underline">{{ previousPost.data.postTitle }}</a></p>
+			<p><a href="{{ previousPost.url }}" class="text-base md:text-sm text-green-500 font-bold hover:underline">{{ previousPost.data.title }}</a></p>
 			{% endif %}
 		</div>
 		<div class="flex-1 text-right">
 			{% set nextPost = collections.posts | getNextCollectionItem %}
 			{% if nextPost %}
 			<span class="text-xs md:text-sm font-normal text-gray-600">Next Post ></span><br>
-			<p><a href="{{ nextPost.url }}" class="text-base md:text-sm text-green-500 font-bold hover:underline">{{ nextPost.data.postTitle }}</a></p>
+			<p><a href="{{ nextPost.url }}" class="text-base md:text-sm text-green-500 font-bold hover:underline">{{ nextPost.data.title }}</a></p>
 			{% endif %}
 		</div>
 	</div>
