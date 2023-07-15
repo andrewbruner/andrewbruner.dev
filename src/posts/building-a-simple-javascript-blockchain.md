@@ -1,12 +1,14 @@
 ---
 title: Building a Simple JavaScript Blockchain
-date: 2021-08-15 00:00:00 -5:00
-history: [2021-08-15 00:00:00 -5:00]
+variables: 
+  date: &date 2021-08-15 00:00:00 -5:00
+date: *date
+history: [*date]
 labels: ['javascript', 'blockchain']
-description: 'When I learn about a new technology, I like to dive in deep: reading articles and documentation, watching videos, and experimenting with code. Recently, I got into blockchain technology and after wrapping my head around the initial concept, I was inspired to create my own blockchain (albeit rudimentary).'
 ---
-
 When I learn about a new technology, I like to dive in deep: reading articles and documentation, watching videos, and experimenting with code. Recently, I got into blockchain technology and after wrapping my head around the initial concept, I was inspired to create my own blockchain (albeit rudimentary).
+
+<!-- excerpt -->
 
 If you are new to the blockchain, I highly recommend watching [this video](https://youtu.be/hYip_Vuv8J0) where the concept is explained in five levels of difficulty. Everyone should take away something new, whether a beginner or expert.
 

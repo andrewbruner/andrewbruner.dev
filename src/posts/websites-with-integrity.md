@@ -1,12 +1,14 @@
 ---
 title: Websites with Integrity
-date: 2021-08-22 00:00:00 -5:00
-history: [2021-08-22 00:00:00 -5:00]
+variables: 
+  date: &date 2021-08-22 00:00:00 -5:00
+date: *date
+history: [*date]
 labels: ['html']
-description: 'I was recently listening to a podcast episode of Syntax where the subject of HTML <link> tags was discussed. One of the many reasons we may use link tags is to link our page to another document, like a CSS stylesheet, a web font, or a file from a content delivery network (CDN).'
 ---
-
 I was recently listening to a podcast episode of [Syntax](https://syntax.fm/show/379/hasty-treat-the-weird-and-wonderful-less-than-link-greater-than-tag) where the subject of HTML `<link>` tags was discussed. One of the many reasons we may use link tags is to *link* our page to another document, like a CSS stylesheet, a web font, or a file from a content delivery network (CDN). The latter may look something like this:
+
+<!-- excerpt -->
 
 ```html
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"

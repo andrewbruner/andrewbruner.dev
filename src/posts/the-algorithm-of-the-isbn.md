@@ -1,12 +1,14 @@
 ---
 title: The Algorithm of the ISBN
-date: 2021-10-10 00:00:00 -5:00
-history: [2021-10-10 00:00:00 -5:00]
+variables: 
+  date: &date 2021-10-10 00:00:00 -5:00
+date: *date
+history: [*date]
 labels: ['javascript', 'algorithms']
-description: 'Today I learned that the ISBN numbers on books have a built-in validation algorithm. Follow along here to see how I wrote my own JavaScript function that uses this algorithm and validates any ISBN argument given to it.'
 ---
-
 Today I learned that the ISBN numbers on books have a built-in validation algorithm. Follow along here to see how I wrote my own JavaScript function that uses this algorithm and validates any ISBN argument given to it.
+
+<!-- excerpt -->
 
 # Overview
 

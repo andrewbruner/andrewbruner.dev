@@ -22,8 +22,8 @@ layout: base.njk
 					{{ post.data.history[post.data.history.length - 1].getDate() }} {{ months[post.data.history[post.data.history.length - 1].getMonth()] }} {{ post.data.history[post.data.history.length - 1].getFullYear() }}
 				</p>
 
-				<!--Description-->
-				<p class="font-light italic my-6">{{ post.data.description }}..</p>
+				<!--Excerpt-->
+				<p class="font-light italic my-6">{{ post.page.excerpt | md | safe }}. . .</p>
 
 				<!--Divider-->
 				<hr class="border-b-2 border-gray-400 mb-8 mx-4">
