@@ -2,6 +2,7 @@
   "name": "andrewbruner.dev",
   "version": "1.0.0",
   "description": "Personal website of Andrew Bruner",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy",
@@ -26,6 +27,7 @@
     "dotenv": "^16.3.1",
     "firebase": "^9.16.0",
     "firebase-tools": "^11.21.0",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^13.0.1"
   }
 }
