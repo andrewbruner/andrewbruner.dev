@@ -2,10 +2,13 @@
   "name": "andrewbruner.dev",
   "version": "1.0.0",
   "description": "Personal website of Andrew Bruner",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy",
+    "deploy": "npx firebase deploy",
     "github-pages": "npx @11ty/eleventy --output=github-pages --pathprefix=andrewbruner.dev",
+    "hashnode": "node hashnode.js",
     "serve": "npx @11ty/eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,8 +24,12 @@
   "homepage": "https://github.com/andrewbruner/andrewbruner.dev#readme",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-beta.1",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "dotenv": "^16.3.1",
     "firebase": "^9.16.0",
-    "firebase-tools": "^11.21.0"
+    "firebase-tools": "^11.21.0",
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^13.0.1"
   }
 }
