@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npx @11ty/eleventy",
+    "deploy": "npx firebase deploy",
     "github-pages": "npx @11ty/eleventy --output=github-pages --pathprefix=andrewbruner.dev",
+    "hashnode": "node hashnode.js",
     "serve": "npx @11ty/eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
