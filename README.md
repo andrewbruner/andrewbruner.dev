@@ -19,7 +19,8 @@
 │   │   └── style.css               // styles for blog posts
 │   ├── /js
 │   │   ├── script.js               // script for navbar functionality
-│   │   └── script-404.js           // script for 404 page error message
+│   │   ├── script-404.js           // script for 404 page error message
+│   │   └── script-email.js         // script to hide email address
 │   ├── /layouts                    // reused templates (layouts)
 │   │   ├── base.njk                // layout for base of every page
 │   │   └── post.njk                // layout for post page
