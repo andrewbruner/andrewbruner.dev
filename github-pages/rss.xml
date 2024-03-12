@@ -3,11 +3,22 @@
   <title>Andrew Bruner</title>
   <link href="https://andrewbruner.dev/rss.xml" rel="self" />
   <link href="https://andrewbruner.dev" />
-  <updated>2023-01-23T05:00:00Z</updated>
+  <updated>2024-03-12T05:00:00Z</updated>
   <id>https://andrewbruner.dev</id>
   <author>
     <name>Andrew Bruner</name>
   </author>
+  <entry>
+    <title>Creating an Inventory and Ordering App</title>
+    <link href="https://andrewbruner.dev/creating-an-inventory-and-ordering-app/"/>
+    <updated>2024-03-12T05:00:00Z</updated>
+    <id>https://andrewbruner.dev/creating-an-inventory-and-ordering-app/</id>
+    <content xml:lang="en" type="html">&lt;p&gt;I finally deployed my second version of my Starbucks webapp! I&#39;ve created a handy website that my fellow partners at my workplace can use to take inventory of our product and know what to order every two days.&lt;/p&gt;
+&lt;p&gt;My initial app used the native input of our phones to update input fields but that was a lot of opening and closing the on-screen keyboard. It also only used session storage to hold the current inventory data and if the phone screen went to sleep when we were pulled away from taking inventory (as we often are), it sometimes-but-not-always would reset the entire inventory process. So frustrating!&lt;/p&gt;
+&lt;p&gt;Now I&#39;m using local storage that stays in the browser&#39;s memory until we complete an entire ordering process or manually clear our browser&#39;s cookies and memory.&lt;/p&gt;
+&lt;p&gt;I just made a whole list of posssible improvements that I&#39;d like to tackle bit by bit. A major weakness of mine is biting off more than I can chew codingwise and not planning out my goals. I hope this is good practice to do things well from start to finish, with constant integration of this new webapp version 2!&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Starting My Eleventieth Blog</title>
     <link href="https://andrewbruner.dev/starting-my-eleventieth-blog/"/>
